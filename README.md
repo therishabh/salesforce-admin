@@ -65,8 +65,8 @@ A. delete of any record we can see in recycle bin while delete of any field we c
 <b>Q. After undelete of fields, are values recovered? (Puma)</b></br>
 A. Yes values recovered.
 
-- when field will delete then it'll not show in detail page as well as it will not show in history section.
-- after recover any field from delete all data will be maintain in history section. (dell)
+- When a field is deleted, it will not show on the detail page, nor will it appear in the history section.
+- After recovering any field from deletion, all data will be maintained in the history section. (dell)
 
 #### Important Rules
 - If we create a field with text and set its behavior to 'unique,' it will work fine as expected. However, if someone accidentally deletes that field and then recovers it, it will lose its uniqueness property.
