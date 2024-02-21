@@ -74,11 +74,45 @@ A. Yes values recovered.
 - If we have a custom field, it will work fine. However, if someone accidentally deletes that field and later changes the page layout, when the user recovers that field from deletion, it may not be visible in the form as expected. To fix this issue, we need to check the page layout and drag and drop the field to a suitable place.
 
 
+## Field Dependency
+In Salesforce, field dependency refers to the relationship between two fields on a Salesforce object where the values available in one field depend on the value selected in another field. This feature allows you to create dynamic behavior in your Salesforce application based on the selections made by users.
+
+In field dependency, there will be only 2 types of fields:</br>
+1. Controlling field (primary)</br>
+2. Dependent field (secondary)</br>
+
+<b>Q. Which all are valid fields for field dependency?</b></br>
+A. Picklist, Picklist (multiselect), Checkbox
+
+<b>Q. Which fields can be used as Controlling field? (Infosys)</b></br>
+A. Picklist and Checkbox
+
+<b>Q. Which fields can be used as a Dependent field? (Infosys)</b></br>
+A. Picklist and Multiselect Picklist
+
+Notes : 
+- If you'll delete controlling field or dependent field and then undelete that field then field dependency will not retain.
+- Hide or show Field is not possible.
+- Hide or show values is possible.
+- A picklist which are controlling can contain max <b>300</b> values, but a picklist which are dependent can contain max <b>1000</b> values.
+
+<b>Q. What are the limitation of field dependency features ?(Disney)</b></br>
+A. 1. all process need to done manually and when we have large amount of data like 200-300 records then this is not a easy solution. </br>
+2. It is limited to only 3 types of fields (picklist, multiselect picklist, checkbox)</br>
+3. after undelete dependency gone.</br>
+4. Only control value of the field not able to control field itself.</br>
+
+<b>Q. Country is controlling State. State is controlling City.</br>
+Country = limit?</br>
+State = limit?</br>
+City = limit?</b></br>
+A. Country = 300</br>
+State = 300 </br>
+City = 1000 </br>
 <b></b></br>
 <b></b></br>
 <b></b></br>
-<b></b></br>
-<b></b></br>
+
 
 
 
