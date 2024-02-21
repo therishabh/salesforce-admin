@@ -132,7 +132,11 @@ Canada</br>
 
 current situation = 14/15000</br>
 
-<b></b></br>
+<b>Q. Have u seen this error in ur project? </br>
+"the field you chose is directly or indirectly dependent on itself." </br>
+When?</b></br>
+A. when user will select controlling field and dependent field same.
+
 <b></b></br>
 
 
