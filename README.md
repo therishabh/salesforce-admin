@@ -1,6 +1,6 @@
 # Notes
 
-### Salesforce Basic
+## Salesforce Basic
 - Salesforce Classic Experience (CEX)
 - Salesforce Lightning Experience (LEX)
 - 9 dots - App Launcher
@@ -95,6 +95,11 @@ Notes :
 - Hide or show Field is not possible.
 - Hide or show values is possible.
 - A picklist which are controlling can contain max <b>300</b> values, but a picklist which are dependent can contain max <b>1000</b> values.
+- LOV = List of values (all values which will show in dropdown or you can say in picklist)
+- if customer provide you a excel file than you can easly add all LOV by copy paste only.
+- A picklist which is standalone that means not connected with any other fields then max value it can contain is <b>1000</b> only.
+- In Salesforce, the maximum character limit for a single picklist value is 255 characters.
+- In Salesforce multilevel dependencies are possible (Ex: Country -> State -> City )
 
 <b>Q. What are the limitation of field dependency features ?(Disney)</b></br>
 A. 1. all process need to done manually and when we have large amount of data like 200-300 records then this is not a easy solution. </br>
@@ -109,7 +114,24 @@ City = limit?</b></br>
 A. Country = 300</br>
 State = 300 </br>
 City = 1000 </br>
-<b></b></br>
+
+
+<b>Q. If ur junior is facing limit issue while creating picklist of large data in ur project, then what can be the possible issues?</br>
+(the field is NOT dependent of anything. no connection.)</b></br>
+A. 1.LOVs going above 1000 count</br>
+
+2. Characters exceeded more than 15k (IMP IQ)</br>
+(Many people in market dont know this!!!)</br>
+
+Means, assume, we have country PL with below values.</br>
+India</br>
+USA</br>
+Canada</br>
+
+(India(5) +USA(3) +Canada(6) ..etc ==> total char limit must be below 15k)</br>
+
+current situation = 14/15000</br>
+
 <b></b></br>
 <b></b></br>
 
