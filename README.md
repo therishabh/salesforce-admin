@@ -67,11 +67,15 @@ A. Yes values recovered.
 
 - When a field is deleted, it will not show on the detail page, nor will it appear in the history section.
 - After recovering any field from deletion, all data will be maintained in the history section. (dell)
+- Object deleted, Field deleted - we can recover.
+- App Deleted - we can not recover.
 
 #### Important Rules
 - If we create a field with text and set its behavior to 'unique,' it will work fine as expected. However, if someone accidentally deletes that field and then recovers it, it will lose its uniqueness property.
 - If we have a field with the required property, it will work fine as expected when creating a new record. However, if someone accidentally deletes that field and then recovers it, it will lose its visibility and required property. This means that the field will not be visible after being undeleted, and we will have to set its visibility from the Set-Field-Level-Security section and mark it as required from the Edit section.
 - If we have a custom field, it will work fine. However, if someone accidentally deletes that field and later changes the page layout, when the user recovers that field from deletion, it may not be visible in the form as expected. To fix this issue, we need to check the page layout and drag and drop the field to a suitable place.
+
+## Global Picklist
 
 
 ## Field Dependency
