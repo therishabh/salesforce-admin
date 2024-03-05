@@ -76,6 +76,24 @@ A. Yes values recovered.
 - If we have a custom field, it will work fine. However, if someone accidentally deletes that field and later changes the page layout, when the user recovers that field from deletion, it may not be visible in the form as expected. To fix this issue, we need to check the page layout and drag and drop the field to a suitable place.
 
 ## Global Picklist
+- Global picklist or Global value set or Picklist value set
+
+How to decide when we need to create a local or a global PL?</br>
+- Becoming proactive in ur project</br>
+- Check requirement doc neatly</br>
+- Asking BA
+
+<b>Q. Can we convert local PL to Global PL?</b></br>
+A. Yes.
+
+<b>Q.Major difference while working on local and global PL? (Nokia)</b></br>
+A. in local picklist we can enable 
+
+#### Important Notes:-
+- Limit | Useful Points for global picklist:</br>
+   - 1 Org = 500 GPL
+   - 1 GPL = Upto 1k active/inactive values
+   - Number of local PLs for 1 GPL = No limit
 
 
 ## Field Dependency
@@ -143,7 +161,95 @@ A. when user will select controlling field and dependent field same.
 
 <b></b></br>
 
+## Relationship in Salesforce
+
+- Relationship is to connect objects with each others in Salesforce
+- In RTP (Real time project) very rarely you will create any isolated object in your career, most of the time you have to create relationship between them.
+- Apart from 5 relationship in salesforce there is one more relationship in salesforce that is <b>External Lookup Relationship</b> which we will use to connect salesforce object with any external object or table (like Dotnet Software table)
+- Below 2 lines will help you to make things clear
+    - Student (Secondary Object) ---> Many Records
+    - Mentor Teacher (Primary Object) ---> One Record
+- Salesforce by default supports one to many connection, we need to do some extra efforts for one to one and many to many connection.
+- In Lookup Relationship if we'll delete primary record then there is no effect on secondary record but in Master Detail Relationship if we'll delete primary record then secondary record will automatically deleted.
+- If you'll delete any record from master detail relationship then as we know secondary record will delete, then the interesting thing is when we'll check recycle bin then we'll find only primary record which we have deleted secondary records are not visible there but in backend it is stored, because when you'll restore that deleted record from recycle bin then primary record will restore as well as all associated record which was deleted due to tightly coupled relationship will also restored.
+- In MDR child record will be controlled by parent record. Owner field will not available in child record in MDR because parent record owner will be the owner of child record.
+- In one object we can create either max 40 LR or max 2 MDR.
+- In LR there is no concept of Roll-up Summary but in MDR there is a concept of Roll-up Summary.
+- Reparenting feature is available in MDR with some extra effort by clicking a checkbox of Allow Reparenting. but in LR it is not required because in LR we can change it any time.
+- Roll-Up Summary only activated for select when there is MDR and object should be Primary Object of MDR. else it will be show in readonly mode.
+- In One object we can contain 40 Roll-up summary.
+- We can not have Leads or Users at Master side in a Master-Detail relationship.
+- If you want to check what type of relationship between two or more objects then you have to check that with the help of Schema Builder option which is available in setup.
+- We can create or modify new object from Schema Builder, even we can add or delete fields of any object with the help of Schema Builder.
+- ![Screenshot 2024-03-05 at 12 28 54 PM](https://github.com/therishabh/salesforce-notes/assets/7955435/d3b23d5e-4c4a-4c84-b939-91d94809d1fe)
 
 
 
+<b>Q. What is Relationship in Salesforce ?</b></br>
+A. Connecting two different objects with each others in salesforce. 
 
+<b>Q. What are the types of Relationships in SF?</br>
+or</br>
+How we can connect objects in Salesforce? (IQ:Dell, Nokia, Puma)
+</b></br>
+A. Lookup Relationship</br>
+B. Master-detail Relationship </br>
+C. Many to many Relationship</br>
+D. Hierarchical Relationship</br>
+E. Self Relationship</br>
+
+<b>Q. What are Lookup Relationship features ?</b></br>
+A. - it use to connect objects in simple way</br>
+- it works on standard object as well as custom objects</br>
+- it works to loosly connect two objects.</br>
+
+<b>Q. What are the problems with LR (Lookup Relationship)</b></br>
+A. - if we want strong connection or mendatory connection then lookup relationship is not good.
+- There is loose bond between objects.
+
+<b>Q. What are the features of MDR</b></br>
+A. - connect two objects with strong connection.
+- If primary record deleted then secondary record will be automatically deleted. (this is called <b>Cascading Delete</b>)
+
+<b>Q. What is Roll-up Summary ?</b></br>
+A. - Roll up summary is a special field to show summary of child records.
+- we can show summary like total count (total child records), max, min and sum.
+- Only works with MDR and Parent object.
+- in One object we can contain 40 roll up summary.
+
+<b>Q. What is data skew / data skew error in Salesforce?</b></br>
+A. This is a performance issue which comes into picture due to "limitation of Salesforce software", when one parent record will have more than 10k child records.
+
+<b>Q. What types of fields we can have in the field to aggregate in Roll-up Summary ?</b></br>
+A. Numerical Value (to be precise : number, currency, date, date and time, percentage)
+
+
+<br>Rule in Salesforce:</br>
+STANDARD OBJECTS CAN'T BE ON THE DETAIL SIDE WHEN IN MASTER SIDE ANY CUSTOM OBJECT IS PRESENT, IN MASTER-DETAIL RELATIONSHIP.</br>
+(Read above line and tell me which scenario is NOT POSSIBLE in Salesforce projects!!)</br>
+Scenario 1:</br>
+Master = a custom object</br>
+Detail = a standard object</br>
+
+Scenario 2 :</br>
+Master = a custom object</br>
+Detail = a custom object</br>
+
+Scenario 3 :</br>
+Master = a standard object</br>
+Detail = a standard object</br>
+
+Scenario 4 :</br>
+Master = a standard object</br>
+Detail = a custom</b></br>
+A. Scenario 1
+
+
+<b>Q. What can be done using Schema Builder ?</b></br>
+A. 
+
+<b>Q. How to identify MDR or LR in Schema Builder ?</b></br>
+A. MDR and LR we can decide by color of thread which are present between two objects, and three lines means child and one line means parent.
+
+<b>Q. What is the relationship between Account and Contact object ? (Famous question based on exception in SF)</b></br>
+A. 
