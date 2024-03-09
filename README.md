@@ -161,6 +161,18 @@ A. when user will select controlling field and dependent field same.
 
 <b></b></br>
 
+## Formula Fields
+- There is no such scope for user to enter the data in formula field, Formula field always copy the data from other field.
+
+- <b>Q. What is formula field?</b></br>
+A.
+  - This is a special type of field or advanced field
+  - User can not make entry in this field.
+  - data will be auto populated.
+  - Data will be come from another field of from our business logic or some calculations but not directly from user.
+  - This is also called as readonly field.
+  - we can use cross object formula field. (COFF), when we copy data where the field present in other table, this is also possible
+
 ## Relationship in Salesforce
 
 - Relationship is to connect objects with each others in Salesforce
