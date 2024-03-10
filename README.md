@@ -163,6 +163,15 @@ A. when user will select controlling field and dependent field same.
 
 ## Formula Fields
 - There is no such scope for user to enter the data in formula field, Formula field always copy the data from other field.
+- In formula field target fields / Output filed can not be picklist and textarea.
+- In formula field soruce field from where you are taking data can be picklist or textarea.
+- Picklist = ISPICKVAL()
+- Picklist Multi Select = INCLUDES()
+- we can convert entire content into text with the help of TEXT() function.
+- Today() -------> only current date
+- Now() ---------> current date and time
+- Formula fields can contain up to 3900 characters, including spaces, return characters (ENTER), and comments.
+- 
 
 - <b>Q. What is formula field?</b></br>
 A.
@@ -172,6 +181,20 @@ A.
   - Data will be come from another field of from our business logic or some calculations but not directly from user.
   - This is also called as readonly field.
   - we can use cross object formula field. (COFF), when we copy data where the field present in other table, this is also possible
+
+- <b>Which type of field can NOT become a Formula Field ?</br>
+(select 2 wrong options)</br>
+Text</br>
+Number</br>
+Percentage</br>
+Picklist</br>
+Text Area</b></br>
+A. Textarea and Picklist
+
+
+- <b>Q. What is limit of spanning relationships per object ?</b></br>
+  A. 15 (spanning relationship means a bridge between two objects)
+
 
 ## Relationship in Salesforce
 
