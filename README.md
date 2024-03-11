@@ -293,8 +293,8 @@ A.
 ## Security
 -  What are the difference between Salesforce and Salesforce Platform Licence ?
   - Answer
-    | Month    | Savings |
+    | Salesforce Licence    | Salesforce Platform Licence |
     | -------- | ------- |
-    | January  | $250    |
-    | February | $80     |
-    | March    | $420    |
+    | Any Standard Object  | Can work on few Standard Object    |
+    | Can work on any custom Object | Can work on any custom Object     |
+
