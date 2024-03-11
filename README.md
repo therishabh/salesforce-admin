@@ -288,3 +288,7 @@ A. MDR and LR we can decide by color of thread which are present between two obj
 
 <b>Q. What is the relationship between Account and Contact object ? (Famous question based on exception in SF)</b></br>
 A. 
+
+
+## Security
+- 
