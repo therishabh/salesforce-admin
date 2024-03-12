@@ -287,7 +287,9 @@ A.
 A. MDR and LR we can decide by color of thread which are present between two objects, and three lines means child and one line means parent.
 
 <b>Q. What is the relationship between Account and Contact object ? (Famous question based on exception in SF)</b></br>
-A. 
+A. Acc and Contact will have Lookup relationship by default.</br>
+BUT,</br>
+if u connect any record of Account to Contact, then they start behaving like MDR, because if Primary record is deleted then Secondary record will also get deleted. (this is managed by SF internally, so we dont need to do anything for this feature)
 
 
 ## Security
@@ -375,4 +377,4 @@ A.
 #### Profile
 - What is Profile, and when we have things like OWD, why we need Profiles ?
   - Answer : In OWD, we can make selective sharing of data accessibility hence we need to use Profile. Profile is a collection of some rules which help us to improve some Implement some restrictions some rules and regulations in a group of people and it's not going to make a flat impact on entire company in short we have flexibility which is absence which is absent in OWD.
-
+- 
