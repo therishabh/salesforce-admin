@@ -291,30 +291,30 @@ A.
 
 
 ## Security
-#### User Licence
-- In Salesforce we have multiple licenses but 2 licence is very famous i.e. Salesforce Licence and Salesforce Platform Licence.
-- Salesforce software for learning purpose so obviously giving limited licences, salesforce provide only 2 license for Salesforce and 3 license for Salesforce Platform.
-- User Licence is main licence and there are few checkbox in user setup those are secondary licence or we can say featured licence.
+#### User License
+- In Salesforce we have multiple licenses but 2 license is very famous i.e. Salesforce License and Salesforce Platform License.
+- Salesforce software for learning purpose so obviously giving limited Licenses, salesforce provide only 2 license for Salesforce and 3 license for Salesforce Platform.
+- User License is main License and there are few checkbox in user setup those are secondary License or we can say featured License.
   
   ![image](https://github.com/therishabh/salesforce-notes/assets/7955435/1ef77a99-9f6c-4ebf-a832-6a1b80b8af00)
   
-- How many licence we have ? we can check that by typing Company information in quick search in setup, then scroll down and there is a section of User Licences in that section we can check all available licences and used licences.
+- How many License we have ? we can check that by typing Company information in quick search in setup, then scroll down and there is a section of User Licenses in that section we can check all available Licenses and used Licenses.
   
   ![Screenshot 2024-03-12 at 5 43 39 AM](https://github.com/therishabh/salesforce-notes/assets/7955435/7dc4af45-0cf1-4198-8371-f7492a98580b)
 
--  What are the difference between Salesforce and Salesforce Platform Licence ?
+-  What are the difference between Salesforce and Salesforce Platform License ?
     - Answer
-      | Salesforce Licence    | Salesforce Platform Licence |
+      | Salesforce License    | Salesforce Platform License |
       | -------- | ------- |
       | Any Standard Object  | Can work on few Standard Object    |
       | Can work on any custom Object | Can work on any custom Object     |
 
-- Which is the most costly licence salesforce or salesforce platform ? (Answer : Salesforce Licence)
-- What situation you will recommend your client to use salesforce platform licence ? (Answer : Budget issue, and entire requiment will be fullfill by custom object then salesforce platform licence is sufficient)
+- Which is the most costly License salesforce or salesforce platform ? (Answer : Salesforce License)
+- What situation you will recommend your client to use salesforce platform License ? (Answer : Budget issue, and entire requiment will be fullfill by custom object then salesforce platform License is sufficient)
 - What are the different ways to reset the password in salesforce ?
     - Answer :
       - Company Level
       - Department Level
       - User Level
       
-
+- In the real time project how many licenses do we need ? (Answer : In the real time project, we should ask with client that how many people are there )
