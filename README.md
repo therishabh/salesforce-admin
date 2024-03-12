@@ -309,5 +309,12 @@ A.
       | Any Standard Object  | Can work on few Standard Object    |
       | Can work on any custom Object | Can work on any custom Object     |
 
--
+- Which is the most costly licence salesforce or salesforce platform ? (Answer : Salesforce Licence)
+- What situation you will recommend your client to use salesforce platform licence ? (Answer : Budget issue, and entire requiment will be fullfill by custom object then salesforce platform licence is sufficient)
+- What are the different ways to reset the password in salesforce ?
+    - Answer :
+      - Company Level
+      - Department Level
+      - User Level
+      
 
