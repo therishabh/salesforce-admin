@@ -296,7 +296,7 @@ A.
 - Salesforce software for learning purpose so obviously giving limited licences, salesforce provide only 2 license for Salesforce and 3 license for Salesforce Platform.
 - User Licence is main licence and there are few checkbox in user setup those are secondary licence or we can say featured licence.
   ![image](https://github.com/therishabh/salesforce-notes/assets/7955435/1ef77a99-9f6c-4ebf-a832-6a1b80b8af00)
-
+- How many licence we have ? we can check that by typing Company information in quick search in setup, then scroll down and there is a section of User Licences in that section we can check all available licences and used licences.
 -  What are the difference between Salesforce and Salesforce Platform Licence ?
     - Answer
       | Salesforce Licence    | Salesforce Platform Licence |
