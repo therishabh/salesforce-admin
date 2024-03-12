@@ -373,5 +373,6 @@ A.
     - We can not give delete facility by OWD.
 
 #### Profile
-
+- What is Profile, and when we have things like OWD, why we need Profiles ?
+  - Answer : In OWD, we can make selective sharing of data accessibility hence we need to use Profile. Profile is a collection of some rules which help us to improve some Implement some restrictions some rules and regulations in a group of people and it's not going to make a flat impact on entire company in short we have flexibility which is absence which is absent in OWD.
 
