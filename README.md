@@ -363,4 +363,8 @@ A.
   
 - Most of the companies salesforce Unlimited addition using. (all the features of salesforce)
 - In salesforce project creator of any record is not such useful, compared to Owner of that record. Owner is responsible of his record, creator will not responsible.
-- 
+- We can change OWD setting from Sharing Settings section to change object Default Internal Access. By default Defaul Internal access is Public Read and Write.
+
+  ![Screenshot 2024-03-12 at 12 45 00 PM](https://github.com/therishabh/salesforce-notes/assets/7955435/3f62490b-9885-49fc-b388-a4df93c75a84)
+
+-  
