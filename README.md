@@ -292,9 +292,9 @@ A.
 
 ## Security
 -  What are the difference between Salesforce and Salesforce Platform Licence ?
-  - Answer
-    | Salesforce Licence    | Salesforce Platform Licence |
-    | -------- | ------- |
-    | Any Standard Object  | Can work on few Standard Object    |
-    | Can work on any custom Object | Can work on any custom Object     |
+    - Answer
+      | Salesforce Licence    | Salesforce Platform Licence |
+      | -------- | ------- |
+      | Any Standard Object  | Can work on few Standard Object    |
+      | Can work on any custom Object | Can work on any custom Object     |
 
