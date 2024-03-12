@@ -317,4 +317,12 @@ A.
       - Department Level
       - User Level
       
-- In the real time project how many licenses do we need ? (Answer : In the real time project, we should ask with client that how many people are there )
+- In the real time project how many licenses do we need to purchance to inform client ? (Answer : We should ask with client that how many people are there, as per that we need to do the needful)
+- can we delete the user in salesforce ? (Answer : No)
+- Why we can not delete user from salesforce ?
+    - Answer :
+      - Salesforce user have connection with various possible settings in salesforce software which can collapse if user will deleted
+      - User connection to various business responsibilities which can damage salesforce org integrity
+      - if user changes some data and if we delete that user then how we can track who delete what data.
+      - 
+- For example, salesforce licence cost $50 to $300 per user per month and there are 10 people resign today so how we can save money as you said we can not delete user ? (Answer : just deactivate user by edit user option and remove checkbox from active then save)
