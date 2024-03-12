@@ -353,7 +353,7 @@ A.
         - Public Read Only
         - Private
 - In OWD we will perform action which will impact complete organization.
-- Admin can login any user by activate Login Access Policy.
+- Admin can login any user from users section in setup, firstly admin need to be activate Login Access Policy then login link will be visible in users section.
   
   ![Screenshot 2024-03-12 at 7 24 39 AM](https://github.com/therishabh/salesforce-notes/assets/7955435/9ff1e8c7-49d0-4891-958e-60e91903a5eb)
 
