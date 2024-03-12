@@ -343,3 +343,15 @@ A.
       - if user changes some data and if we delete that user then how we can track who delete what data.
 - For example, salesforce licence cost $50 to $300 per user per month and there are 10 people resign today so how we can save money as you said we can not delete user ? (Answer : just deactivate user by edit user option and remove checkbox from active then save)
 - There is a option available in user section that is <b>Freeze</b>, which is similar to deactive user not exact same, by Freeze we can block a user to login, from making entry into the salesforce org.
+
+#### OWD (Organization Wide Defaults)
+
+- OWD is a initial level of setting we do for every object while doing Security. In other words OWD is a setting by which we can decide how records of a specific object can be availble for all the users in the company except the owner.
+- What are "key" types of OWD settings in Salesforce ?
+    - Answer
+        - Public Read and Write
+        - Public Read Only
+        - Private
+- In OWD we will perform action which will impact complete organization.
+- Most of the companies salesforce Unlimited addition using. (all the features of salesforce)
+- In salesforce project creator of any record is not such useful compared to Owner of that record. Owner is responsible of his record, creator will not responsible.
