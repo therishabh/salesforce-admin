@@ -353,5 +353,9 @@ A.
         - Public Read Only
         - Private
 - In OWD we will perform action which will impact complete organization.
+- Admin can login any user by activate Login Access Policy.
+  
+  ![Screenshot 2024-03-12 at 7 24 39 AM](https://github.com/therishabh/salesforce-notes/assets/7955435/9ff1e8c7-49d0-4891-958e-60e91903a5eb)
+
 - Most of the companies salesforce Unlimited addition using. (all the features of salesforce)
 - In salesforce project creator of any record is not such useful compared to Owner of that record. Owner is responsible of his record, creator will not responsible.
