@@ -291,10 +291,18 @@ A.
 
 
 ## Security
+#### User Licence
+- In Salesforce we have multiple licenses but 2 licence is very famous i.e. Salesforce Licence and Salesforce Platform Licence.
+- Salesforce software for learning purpose so obviously giving limited licences, salesforce provide only 2 license for Salesforce and 3 license for Salesforce Platform.
+- User Licence is main licence and there are few checkbox in user setup those are secondary licence or we can say featured licence.
+  ![image](https://github.com/therishabh/salesforce-notes/assets/7955435/1ef77a99-9f6c-4ebf-a832-6a1b80b8af00)
+
 -  What are the difference between Salesforce and Salesforce Platform Licence ?
     - Answer
       | Salesforce Licence    | Salesforce Platform Licence |
       | -------- | ------- |
       | Any Standard Object  | Can work on few Standard Object    |
       | Can work on any custom Object | Can work on any custom Object     |
+
+-
 
