@@ -357,5 +357,10 @@ A.
   
   ![Screenshot 2024-03-12 at 7 24 39 AM](https://github.com/therishabh/salesforce-notes/assets/7955435/9ff1e8c7-49d0-4891-958e-60e91903a5eb)
 
+- When any user will login from users section as maintioned above and after logout that user admin should be still login, but by default when you'll logout from user then admin will also logout, to maintain this session we have to change in session setting section under setup. (You have to uncheck "Force relogin after Login-As User")
+
+  <img width="876" alt="Screenshot 2024-03-12 at 12 34 34 PM" src="https://github.com/therishabh/salesforce-notes/assets/7955435/dad4956d-ee81-442d-a765-9176cc5af169">
+  
 - Most of the companies salesforce Unlimited addition using. (all the features of salesforce)
-- In salesforce project creator of any record is not such useful compared to Owner of that record. Owner is responsible of his record, creator will not responsible.
+- In salesforce project creator of any record is not such useful, compared to Owner of that record. Owner is responsible of his record, creator will not responsible.
+- 
