@@ -291,6 +291,23 @@ A.
 
 
 ## Security
+- Security topic= (this is not a single topic, this is group of topics!!!)
+    - External Security
+    - IP setting
+    - Password reset
+    - Audit trail
+    - User Management
+    - Internal Security
+    - OWD
+    - Profile
+    - Permission set
+    - Roles
+    - Sharing Rules
+    - Manual Sharing
+    - Field Level Security
+    - Queue
+    - Public Group
+
 #### User License
 - In Salesforce we have multiple licenses but 2 license is very famous i.e. Salesforce License and Salesforce Platform License.
 - Salesforce software for learning purpose so obviously giving limited Licenses, salesforce provide only 2 license for Salesforce and 3 license for Salesforce Platform.
@@ -324,5 +341,5 @@ A.
       - Salesforce user have connection with various possible settings in salesforce software which can collapse if user will deleted
       - User connection to various business responsibilities which can damage salesforce org integrity
       - if user changes some data and if we delete that user then how we can track who delete what data.
-      - 
 - For example, salesforce licence cost $50 to $300 per user per month and there are 10 people resign today so how we can save money as you said we can not delete user ? (Answer : just deactivate user by edit user option and remove checkbox from active then save)
+- There is a option available in user section that is <b>Freeze</b>, which is similar to deactive user not exact same, by Freeze we can block a user to login, from making entry into the salesforce org.
