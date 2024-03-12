@@ -367,4 +367,11 @@ A.
 
   ![Screenshot 2024-03-12 at 12 45 00 PM](https://github.com/therishabh/salesforce-notes/assets/7955435/3f62490b-9885-49fc-b388-a4df93c75a84)
 
--  
+-  In OWD delete facility is not possible only view and edit facility is possible.
+-  Issue :
+    - whatever setting we do, it applies for everyon in the company we can not set things for few people.
+    - We can not give delete facility by OWD.
+
+#### Profile
+
+
