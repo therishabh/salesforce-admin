@@ -291,6 +291,17 @@ A. Acc and Contact will have Lookup relationship by default.</br>
 BUT,</br>
 if u connect any record of Account to Contact, then they start behaving like MDR, because if Primary record is deleted then Secondary record will also get deleted. (this is managed by SF internally, so we dont need to do anything for this feature)
 
+## Lightning Flow
+- Flow is very powerful tool which is available in salesforce.
+- Flow Provides declarative process automation.
+- In Salesforce there are two types of development
+    - Declarative development
+    - Custom development
+- Declarative development is also known as low code development.
+- Lightning Flow provides this point and click automation tool i.e. **Flow Builder**
+- Lightning Flow is a product, process build and flow builders are name of the tools.
+- If you talk about the product then it's Lightning flow and if you talk about the tool with which you'll be implement the flow so that is flow builder.
+- **Work flow and process builder are getting retired, they are deprecated now.**
 
 ## Security
 - Security topic= (this is not a single topic, this is group of topics!!!)
