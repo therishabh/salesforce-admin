@@ -401,8 +401,11 @@ if u connect any record of Account to Contact, then they start behaving like MDR
 - In one saleforce Org how many permission set we can create ? (Answer : Approx 1000)
 - Salesforce decided in future more focus on Permission sets and less focus on Profile.
 - if you want to disable setup option on any user then there is an option in profile "View Setup and configuration" you should deselect that option.
-- 
- 
+- Fill in the blanks: (20 sec)
+    - OWD = impacts "entire xxx" FOR THAT OBJECT (xxx = organization)
+    - Profile = impacts "entire yyy" FOR THAT OBJECT (yyy = department)
+    - P'set = impacts only "specific zzz" from a dept FOR THAT OBJECT (zzz = user)
+- Object should be private in OWD (99.99% objects)
 
 
 
