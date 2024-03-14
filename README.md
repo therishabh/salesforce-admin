@@ -400,6 +400,7 @@ if u connect any record of Account to Contact, then they start behaving like MDR
     - In Profile is something we use to give a same level of setting for all the users in the department but in permission sets is for different different settings for different different users.
 - In one saleforce Org how many permission set we can create ? (Answer : Approx 1000)
 - Salesforce decided in future more focus on Permission sets and less focus on Profile.
+- if you want to disable setup option on any user then there is an option in profile "View Setup and configuration" you should deselect that option.
 - 
  
 
