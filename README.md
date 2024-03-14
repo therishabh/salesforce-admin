@@ -388,4 +388,27 @@ if u connect any record of Account to Contact, then they start behaving like MDR
 #### Profile
 - What is Profile, and when we have things like OWD, why we need Profiles ?
   - Answer : In OWD, we can make selective sharing of data accessibility hence we need to use Profile. Profile is a collection of some rules which help us to improve some Implement some restrictions some rules and regulations in a group of people and it's not going to make a flat impact on entire company in short we have flexibility which is absence which is absent in OWD.
+
+#### Permission Sets
+- In profile we are doing clone of profile with another profile but in permission sets we don't need to clone it, we can create fresh permission sets
+- What is Permission Sets ?
+    - Permission Sets are the extensions to the Profiles !
+    - Permission sets is only for giving not for taking out the access which user already has.
+- What are the benefits of Permission Sets ?
+    - We can have only one profile for one user by default but here in permission set we don't have that problem, one person can have 3 permission sets, 300 permission sets and so on.
+    - In Profile we can add only that user which having matching license but in permission sets we can add, a person which have Salesforce License also, a person which have Salesforce Platform license also.
+    - In Profile is something we use to give a same level of setting for all the users in the department but in permission sets is for different different settings for different different users.
+- In one saleforce Org how many permission set we can create ? (Answer : Approx 1000)
+- Salesforce decided in future more focus on Permission sets and less focus on Profile.
 - 
+ 
+
+
+
+
+
+
+
+
+
+
