@@ -304,7 +304,7 @@ if u connect any record of Account to Contact, then they start behaving like MDR
 - **Work flow and process builder are getting retired, they are deprecated now.**
 
 ## Security
-- Security topic= (this is not a single topic, this is group of topics!!!)
+- Security topic = (this is not a single topic, this is group of topics!!!)
     - External Security
     - IP setting
     - Password reset
