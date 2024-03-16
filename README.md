@@ -413,9 +413,26 @@ if u connect any record of Account to Contact, then they start behaving like MDR
     - In a project if OWD of object is private as well as there is no admin level access like profile, permission sets still the senior level person can access the record owned by Junior, how by role facility.
 - What is the access level the senior can get on records shared by Roles? (Answer : RED Read-Edit-Delete)
 - Suppose there is a user (A), and he has one junior person (B) under his role although person A is not able to see records of his junior person. for this, main reason is under OWD there is an option Grant Access Using Hierarchies should be enabled.
+  
   ![Screenshot 2024-03-16 at 9 06 11 AM](https://github.com/therishabh/salesforce-notes/assets/7955435/24e6a3d2-c106-4af2-9781-a980c27de4a2)
 
+- Any Salesforce org created in 2022 or later, the count of role became 10000, for older org, the maximum number of roles allowed is 500 only.
 
+#### Sharing Rules
+- While working on sharing rules currency field is not supported.
+- ![Screenshot 2024-03-16 at 2 53 40 PM](https://github.com/therishabh/salesforce-notes/assets/7955435/39301a7e-0809-4807-b20a-8db5348f3325)
+
+- What is sharing rules ?
+    - To share the records, based on some conditions, we use SR. (dynamic sharing) [This is called as selective sharing]
+- What are the different types of Sharing rules ?
+    - Owner based and criteria based.
+- Permission available in sharing rules (Read and Read/Write)
+- In sharing rules, previous records also shared based on criteria which you have selected.
+- problems with sharing rules ?
+    - we have some selected fields in sharing rules (suppose we can not select criteria base on currency field)
+    - Sharing rules does not give permission to delete the record only edit or view permission we can provide.
+    - We can not share record with a single person.
+    - 
 
 
 
