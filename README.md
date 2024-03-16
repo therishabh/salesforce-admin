@@ -411,6 +411,10 @@ if u connect any record of Account to Contact, then they start behaving like MDR
 - If you'll close the door (remove permissions) for any user from OWD, then profile and Permission sets and by Role we can give permission to that user to access the data.
 - What is significance of role?
     - In a project if OWD of object is private as well as there is no admin level access like profile, permission sets still the senior level person can access the record owned by Junior, how by role facility.
+- What is the access level the senior can get on records shared by Roles? (Answer : RED Read-Edit-Delete)
+- Suppose there is a user (A), and he has one junior person (B) under his role although person A is not able to see records of his junior person. for this, main reason is under OWD there is an option Grant Access Using Hierarchies should be enabled.
+  ![Screenshot 2024-03-16 at 9 06 11 AM](https://github.com/therishabh/salesforce-notes/assets/7955435/24e6a3d2-c106-4af2-9781-a980c27de4a2)
+
 
 
 
