@@ -407,6 +407,26 @@ if u connect any record of Account to Contact, then they start behaving like MDR
     - P'set = impacts only "specific zzz" from a dept FOR THAT OBJECT (zzz = user)
 - Object should be private in OWD (99.99% objects)
 
+#### Role
+- If you'll close the door (remove permissions) for any user from OWD, then profile and Permission sets and by Role we can give permission to that user to access the data.
+- What is significance of role?
+    - In a project if OWD of object is private as well as there is no admin level access like profile, permission sets still the senior level person can access the record owned by Junior, how by role facility.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
