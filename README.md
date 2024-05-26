@@ -291,6 +291,36 @@ A. Acc and Contact will have Lookup relationship by default.</br>
 BUT,</br>
 if u connect any record of Account to Contact, then they start behaving like MDR, because if Primary record is deleted then Secondary record will also get deleted. (this is managed by SF internally, so we dont need to do anything for this feature)
 
+### Custom Labels Vs Custom Settings Vs Custom Metadata
+#### What is Custom Label in Salesforce?
+Custom labels are custom text values that can be accessed from Apex classes, Visualforce pages, or Lightning components. They are typically used for any text that needs to be translated into different languages, or custom text that might need to change frequently.
+
+For example, you could use a custom label to store the error message text that’s displayed to users. If you need to change that message, you can just change the label, rather than editing and re-deploying your code.
+
+#### What is Custom Setting in Salesforce?
+Custom settings are similar to custom labels, but they’re used to store data that your org might need to reference frequently. They can store any kind of data, like numbers, strings, or dates, and can be used to create org-wide settings.
+
+Use cases might include things like controlling behavior of your code (for instance, enabling or disabling features without changing the code), storing information that is used across multiple classes or triggers (like thresholds or constants), and reducing SOQL queries as data is cached and available across the org.
+
+1) It is a way through which anyone can get easier and faster access to data.
+2) The main advantage of using Custom Settings is that the data is cached, which enables efficient access without the cost of repeated queries to the database.One doesn't have to use SOQL queries which count against the governor limits.
+3) Custom settings data can be used by formula fields, Visualforce, Apex, and the Web Services API.
+
+**List Custom Setting**
+1) It provides a reusable set of static data which can be accessed across your organization.
+2) The data in List Custom Settings is directly visible to any user in the org.
+Eg: Let's suppose we want to add custom settings of phone codes of countries. For example, if someone chooses India, automatically a +91 number initiates in the form, thus, it is not necessary to fetch from the database by using SOQL query in the backend. So, let's fill the label and object name accordingly. We will choose the setting type as List.
+
+#### What is Custom Metadata in Salesforce?
+Custom Metadata Types stores the records in a memory cache which allows faster retrieval of data when you execute a query. 
+
+Custom Metadata Types in Salesforce are similar to custom objects. It has a suffix of “__mdt” instead of “__c” in the API namespace. Let’s say if you create a Custom Metadata type with name “Apex Hours”, the API name of the metadata type would appear as – “Apex_Hours__mdt”.
+
+- This doesn’t count against Governor limits.
+- It are deployable from one environment(Org) to another environment. You can package your metadata along with data or deploy it easily from one Org to another. 
+
+For more detail : https://www.apexhours.com/custom-metadata-types/
+
 ## Lightning Flow
 - Flow is very powerful tool which is available in salesforce.
 - Flow Provides declarative process automation.
