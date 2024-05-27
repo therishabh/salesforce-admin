@@ -488,10 +488,27 @@ Sets.
 - Through Permission sets permission can be granted and any time it can be taken away as well.
 - Users can have only one profile, but they can have multiple permission sets assigned.
 
+### Permission Set Group
+- Permission Set group bundles different permission sets together based on a persona.
+- A permission set group includes all the permissions available in the permission sets.
+- One permission set can be included in more than one permission set groups.
+- A user can be assigned one or more Permission Set Groups.
+- Also we can assign Permission Set and Permission Set Groups together to users.
 
+### What is MUTE in Permission Set Group?
+- One can mute some permissions in Permission Set Groups so that they won't be given to the user.
+- If you mute particular permission in Permission Set Group then it won't impact individual Permission Set, they remain intact.
+- You can anytime unmute the permissions in permission set group.
 
-
-
+### Record Level Security
+- You can restrict access to records for users, even if user has object level permissions.
+- For example, a user can view his own records but not others.
+- You can manage Record Level Access in following ways:
+  • Organization-wide defaults</br>
+  • Role hierarchies</br>
+  • Sharing rules</br>
+  • Manual sharing</br>
+![image](https://github.com/therishabh/salesforce-admin/assets/7955435/0b245f0c-f892-473d-a9e6-2d836737660d)
 
 
 
