@@ -462,12 +462,32 @@ For more detail : https://www.apexhours.com/custom-metadata-types/
     - we have some selected fields in sharing rules (suppose we can not select criteria base on currency field)
     - Sharing rules does not give permission to delete the record only edit or view permission we can provide.
     - We can not share record with a single person.
-    - 
+--------------------------
+### Object Level Security
+• You can control object level permissions for both Standard and
+Custom Objects.
+• You can set permissions for a particular object.
+• You can give permissions to view, create, edit and delete any records of that object.
+• You can control object permissions using profiles and permission sets.
 
+### Field Level Security
+• You can restrict access to certain fields in Salesforce, even if user has object level access.
+• You can make a field visible to a particular user and can hide that from another user.
+• You can give Read or Edit permission to a field, if you don't give both then that field will not be visible.
+• Field Level Security can be controlled using Profiles and Permission
+Sets.
 
+### Profile
+• A profile is a collection of settings and permissions.
+• Profile settings determine which data the user can see, and permissions determine what the user can do with that data.
+• A profile can be assigned to many users, but a user can have only one profile at a time.
+• To create new profile you need to clone existing profile.
 
-
-
+### Permission Set
+• A permission set is a collection of settings and permissions that give user access to various tools and functions.
+• Permission sets extend users functional access without changing their profile.
+• Through Permission sets permission can be granted and any time it can be taken away as well.
+• Users can have only one profile, but they can have multiple permission sets assigned.
 
 
 
