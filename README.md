@@ -463,6 +463,20 @@ For more detail : https://www.apexhours.com/custom-metadata-types/
     - Sharing rules does not give permission to delete the record only edit or view permission we can provide.
     - We can not share record with a single person.
 --------------------------
+
+### Levels of Data Access
+- Organization
+- Objects
+- Fields
+- Records
+
+### Organization
+- Maintain a list of authorized users
+- Set password policies
+- Limit login to certain hours and locations
+  - Limit IP Addresses from which users can log in
+  - Limit the times at which users can log in
+
 ### Object Level Security
 - You can control object level permissions for both Standard and Custom Objects.
 - You can set permissions for a particular object.
@@ -510,13 +524,29 @@ Sets.
   • Manual sharing</br>
 ![image](https://github.com/therishabh/salesforce-admin/assets/7955435/0b245f0c-f892-473d-a9e6-2d836737660d)
 
+### Organization-wide defaults
+- It specified the default level of access of records.
+- Org-wide sharing setting lock down the data to the most restrictive level.
+- Here you have three access level:
+  • Private</br>
+  • Public Read-Only</br>
+  • Public Read/Write</br>
+- You can use other Record Level security and sharing tools to open up the sharing of records.
 
+### Role Hierarchies
+- It gives access for users higher in the hierarchy.
+- That user can access all records owned by the users below them in the hierarchy.
+- Each role in the hierarchy should represent a level of data access that a user or group of user needs.
 
+### Sharing Rules
+- These are exceptions to Org-Wide defaults.
+- Through sharing rules you can share records to a group of users.
+- So that, they can get access to the records they don't own or can't manually see.
 
-
-
-
-
+### Manual Sharing
+- It allows owners of particular records to share them with another userS.
+- Manual sharing is not automated like Org-wide defaults, Role hierarchy or sharing rules.
+- It can be useful in some situation where you manually want to share a record with another user.
 
 
 
