@@ -198,6 +198,19 @@ A. Textarea and Picklist
 
 ## Relationship in Salesforce
 
+### Master Detail Relationship
+A master-detail relationship in Salesforce is a type of relationship that tightly links two objects together, where one object (the master) controls certain behaviors of the other object (the detail). Here are the key points of a master-detail relationship in Salesforce:</br></br>
+#### Key Characteristics of Master-Detail Relationships
+**1. Parent-Child Relationship:** The master object is the parent, and the detail object is the child. The child object is always tightly linked to the parent. </br>
+**2. Cascade Delete:** If a record in the master object is deleted, all related detail records are also deleted.</br>
+**3. Ownership and Sharing:** Detail records inherit the owner and sharing settings of the master record. You cannot have different owners for the master and detail records.</br>
+**4. Roll-Up Summary Fields:** You can create roll-up summary fields on the master object to perform calculations (sum, count, min, max) on the related detail records.</br>
+**5. Field Limits:** Each object can have up to **2 master-detail** relationships</br>
+**6. Standard Objects:** You cannot create a master-detail relationship where a standard object is the detail object. Standard objects can only be masters in master-detail relationships.</br>
+**7. Reparenting:** By default, detail records cannot be reparented (i.e., assigned to a different master record). This behavior can be modified to allow reparenting by setting the "Allow reparenting" option during the relationship creation.</br>
+
+
+
 - Relationship is to connect objects with each others in Salesforce
 - In RTP (Real time project) very rarely you will create any isolated object in your career, most of the time you have to create relationship between them.
 - Apart from 5 relationship in salesforce there is one more relationship in salesforce that is <b>External Lookup Relationship</b> which we will use to connect salesforce object with any external object or table (like Dotnet Software table)
