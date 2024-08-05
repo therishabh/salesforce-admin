@@ -561,6 +561,60 @@ Sets.
 - Manual sharing is not automated like Org-wide defaults, Role hierarchy or sharing rules.
 - It can be useful in some situation where you manually want to share a record with another user.
 
+<img width="1440" alt="Screenshot 2024-08-05 at 8 50 26 AM" src="https://github.com/user-attachments/assets/b5462c2e-f88a-46bb-8c3c-f2f575a41c9b">
+
+<img width="1440" alt="Screenshot 2024-08-05 at 8 50 43 AM" src="https://github.com/user-attachments/assets/b00dcd7a-77d0-4e7a-908b-98d9b10549e8">
+
+<img width="1440" alt="Screenshot 2024-08-05 at 8 54 10 AM" src="https://github.com/user-attachments/assets/b194546f-cf62-4cc6-b20e-2f4ba1a8c764">
+
+<img width="1440" alt="Screenshot 2024-08-05 at 8 53 50 AM" src="https://github.com/user-attachments/assets/5496b4f4-972c-4281-9b4b-a1058814bf24">
+
+<img width="1440" alt="Screenshot 2024-08-05 at 8 55 49 AM" src="https://github.com/user-attachments/assets/42c2960d-3cdb-4b29-a695-dacbabe7a7f8">
+
+<img width="1440" alt="Screenshot 2024-08-05 at 9 01 02 AM" src="https://github.com/user-attachments/assets/9186f95c-6196-4b61-a090-5157883cd6aa">
+
+<img width="1440" alt="Screenshot 2024-08-05 at 9 01 30 AM" src="https://github.com/user-attachments/assets/b6c1c6eb-ae40-44df-82f7-3e8ce0e5d8a7">
+
+<img width="1440" alt="Screenshot 2024-08-05 at 9 04 46 AM" src="https://github.com/user-attachments/assets/5dee6782-c520-4750-bc0f-591d17f198b2">
+
+<img width="1440" alt="Screenshot 2024-08-05 at 9 05 00 AM" src="https://github.com/user-attachments/assets/dee9b453-15c2-4ea2-adc8-d2fe98920f19">
+
+<img width="1440" alt="Screenshot 2024-08-05 at 9 06 44 AM" src="https://github.com/user-attachments/assets/aa2a6893-a629-49a5-9f56-94095f276ed5">
+
+<img width="1440" alt="Screenshot 2024-08-05 at 9 19 09 AM" src="https://github.com/user-attachments/assets/8a359f13-7945-4d84-b9cb-abeb875abfe6">
+
+<img width="1440" alt="Screenshot 2024-08-05 at 9 20 55 AM" src="https://github.com/user-attachments/assets/ff102167-3f28-44a6-86ef-df0a55017067">
+
+<img width="1440" alt="Screenshot 2024-08-05 at 9 24 37 AM" src="https://github.com/user-attachments/assets/48f99ebe-2b38-44aa-9aaf-905b3eb8cb1e">
+
+<img width="1440" alt="Screenshot 2024-08-05 at 9 27 11 AM" src="https://github.com/user-attachments/assets/d4124063-7b0c-4573-a09d-c7ca5c9d5a8a">
+
+<img width="1440" alt="Screenshot 2024-08-05 at 9 27 26 AM" src="https://github.com/user-attachments/assets/0cf2d8cc-cb3e-4796-acc7-1bcdf884a4b7">
+
+<img width="1440" alt="Screenshot 2024-08-05 at 9 34 00 AM" src="https://github.com/user-attachments/assets/3eae73c8-16d5-4a4f-9ece-ac3e585f6bc4">
+
+<img width="1440" alt="Screenshot 2024-08-05 at 9 34 09 AM" src="https://github.com/user-attachments/assets/72186c62-851d-44c1-90e6-edbbe4f333ac">
+
+<img width="1440" alt="Screenshot 2024-08-05 at 9 38 17 AM" src="https://github.com/user-attachments/assets/48d91ee5-004b-4e59-a70d-f48bb122d76c">
+
+<img width="1440" alt="Screenshot 2024-08-05 at 9 41 46 AM" src="https://github.com/user-attachments/assets/72bc086d-95e6-4d26-8a42-1ae144773677">
+
+<img width="1440" alt="Screenshot 2024-08-05 at 9 42 04 AM" src="https://github.com/user-attachments/assets/6af3b224-8b9d-41b1-a6b3-e01f86bd9038">
+
+<img width="1440" alt="Screenshot 2024-08-05 at 9 42 15 AM" src="https://github.com/user-attachments/assets/bba0bc71-f096-4141-912b-56e676bc6222">
+
+<img width="1440" alt="Screenshot 2024-08-05 at 9 42 33 AM" src="https://github.com/user-attachments/assets/bc96ee55-2b6f-46c9-bf07-59be981bb2a4">
+
+<img width="1440" alt="Screenshot 2024-08-05 at 11 01 39 AM" src="https://github.com/user-attachments/assets/1bf24a12-c02d-4312-b751-4ed9a09e7d55">
+
+
+
+
+
+
+
+
+
 
 
 
