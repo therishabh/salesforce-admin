@@ -52,23 +52,63 @@ A. 18 months without coding, with coding we can retain 24 months.</br>
 A. 20 fields
 
 ## Field Deletion consideration 
-<b>Q. Recycle Bin of records Vs Recycle Bin of fields : (Amazon)</br>
-1.Difference </br>
-2.Common thing
-</b> </br>
-A. delete of any record we can see in recycle bin while delete of any field we can see in deleted field under Fields & Relationships section. as you delete any record or field then they both go to into recycle bin area and wait for 15 days after that data or field will be permanently deleted.</br>
-<b>After 15 days, data is permanently deleted from the Recycle Bin</b>
+Here’s a clean, professional, and well-organized version of your documentation text — formatted for clarity and usability:
 
-- if you want to free some space by deleting the field then you have to delete those field by permanently otherwise space will not free. (best practice)
-- you can check limitation and usase of custom field by go to Object Limits under object manager.
+---
 
-<b>Q. After undelete of fields, are values recovered? (Puma)</b></br>
-A. Yes values recovered.
+## Recycle Bin: Records vs. Fields
 
-- When a field is deleted, it will not show on the detail page, nor will it appear in the history section.
-- After recovering any field from deletion, all data will be maintained in the history section. (dell)
-- Object deleted, Field deleted - we can recover.
-- App Deleted - we can not recover.
+### 1. Difference
+
+* **Records**: When a record is deleted, it is moved to the **Recycle Bin**.
+* **Fields**: When a field is deleted, it appears under the **Deleted Fields** section within **Fields & Relationships** on the object.
+
+### 2. Commonality
+
+* Both deleted **records** and **fields** remain recoverable for **15 days**.
+* After **15 days**, they are **permanently deleted** and cannot be restored.
+
+---
+
+### Additional Notes
+
+* If you want to **free up storage space**, you must **permanently delete** the fields.
+
+  * Simply deleting a field (without permanent deletion) does **not** free up space.
+  * **Best Practice:** Permanently delete unused fields when you no longer need them.
+* You can check **field limitations and usage** by navigating to:
+  **Setup → Object Manager → [Object Name] → Object Limits**
+
+---
+
+### Field Recovery Behavior
+
+### Q. After undeleting fields, are the field values recovered?
+
+**A.** Yes — when a field is undeleted, all its previous **values** are **restored**.
+
+### Additional Details
+
+* Once a field is deleted:
+
+  * It no longer appears on the **detail page**.
+  * It is also removed from the **field history tracking** section.
+* When a deleted field is recovered:
+
+  * Its **data** and **history** are restored.
+
+---
+
+#### Recovery Limitations
+
+| Deleted Item | Recoverable? |
+| ------------ | ------------ |
+| Object       | ✅ Yes        |
+| Field        | ✅ Yes        |
+| App          | ❌ No         |
+
+---
+
 
 #### Important Rules
 - If we create a field with text and set its behavior to 'unique,' it will work fine as expected. However, if someone accidentally deletes that field and then recovers it, it will lose its uniqueness property.
