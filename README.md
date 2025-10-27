@@ -108,11 +108,60 @@ Here’s a clean, professional, and well-organized version of your documentation
 
 ---
 
+### Important Rules for Field Deletion and Recovery
 
-#### Important Rules
-- If we create a field with text and set its behavior to 'unique,' it will work fine as expected. However, if someone accidentally deletes that field and then recovers it, it will lose its uniqueness property.
-- If we have a field with the required property, it will work fine as expected when creating a new record. However, if someone accidentally deletes that field and then recovers it, it will lose its visibility and required property. This means that the field will not be visible after being undeleted, and we will have to set its visibility from the Set-Field-Level-Security section and mark it as required from the Edit section.
-- If we have a custom field, it will work fine. However, if someone accidentally deletes that field and later changes the page layout, when the user recovers that field from deletion, it may not be visible in the form as expected. To fix this issue, we need to check the page layout and drag and drop the field to a suitable place.
+When fields are **deleted and later recovered**, certain properties and behaviors may not be fully restored. Below are key considerations and corrective actions:
+
+#### 1. Unique Fields
+
+* **Behavior:**
+
+  * A field created with the **Text** data type and marked as **Unique** will function correctly as long as it remains active.
+  * However, if this field is **deleted** and later **recovered**, it **loses its uniqueness property**.
+* **Action Required:**
+
+  * Manually re-enable the **Unique** attribute after recovery if uniqueness is required.
+
+---
+
+#### 2. Required Fields
+
+* **Behavior:**
+
+  * A field marked as **Required** works normally during record creation.
+  * If this field is **deleted** and later **recovered**, it **loses both its visibility and required properties**.
+  * The field will not be visible on the page after recovery.
+* **Action Required:**
+
+  1. Go to **Set Field-Level Security** and re-enable visibility for the appropriate profiles.
+  2. Open the **Edit Field** section and re-select the **Required** checkbox.
+
+---
+
+#### 3. Custom Fields and Page Layouts
+
+* **Behavior:**
+
+  * A **custom field** will function normally until deleted.
+  * If it is **deleted**, and the **page layout** is modified while it is in the deleted state, then upon recovery, the field may **not automatically appear** on the page layout.
+* **Action Required:**
+
+  * Navigate to **Page Layouts** and **manually drag and drop** the recovered field into the desired section.
+
+---
+
+#### Summary
+
+| Scenario                      | Issue After Recovery         | Action to Fix                                    |
+| ----------------------------- | ---------------------------- | ------------------------------------------------ |
+| Unique Field                  | Uniqueness removed           | Re-enable “Unique” property                      |
+| Required Field                | Not visible and not required | Re-set field-level security and mark as required |
+| Custom Field (Layout Changed) | Not visible on page layout   | Add manually to page layout                      |
+
+---
+---
+---
+---
 
 ## Global Picklist
 - Global picklist or Global value set or Picklist value set
