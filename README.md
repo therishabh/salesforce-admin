@@ -27,8 +27,7 @@ Field History Tracking allows Salesforce users to monitor changes to specific fi
 
 ### 1. Benefits of Field Tracking
 
-**Q:** What are the benefits of field tracking in your job?
-**A:**
+**Q:** What are the benefits of field tracking in your job?<br/>**A:**
 
 * Helps identify **who changed what and when**.
 * Useful for **auditing** and maintaining **data accuracy**.
@@ -37,7 +36,7 @@ Field History Tracking allows Salesforce users to monitor changes to specific fi
 
 ### 2. Tracking Standard Fields
 
-**Q:** Can we track standard fields? *(TCS)*
+**Q:** Can we track standard fields? *(TCS)*<br/>
 **A:**
 Yes — but only **two** standard fields can be tracked:
 
@@ -47,6 +46,7 @@ Yes — but only **two** standard fields can be tracked:
 ### 3. Standard Fields That Cannot Be Tracked
 
 **Q:** Which standard fields cannot be tracked, and why?
+<br/>
 **A:**
 
 * **CreatedBy** and **LastModifiedBy** cannot be tracked.
@@ -59,7 +59,7 @@ Yes — but only **two** standard fields can be tracked:
 
 ### 4. Reliability of "Last Modified By"
 
-**Q:** What issues arise when relying on "Last Modified By" for tracking data changes? *(IBM)*
+**Q:** What issues arise when relying on "Last Modified By" for tracking data changes? *(IBM)*<br/>
 **A:**
 
 * It only shows **who modified** the record, **not which fields** were changed.
@@ -67,10 +67,10 @@ Yes — but only **two** standard fields can be tracked:
 
 ### 5. When Field Tracking Details Are Missing
 
-**Q:** If a user cannot see field tracking details in the related section, what should you do?
-**OR**
-**Q:** What are the reasons field changes might not be tracked?
-**A:**
+**Q:** If a user cannot see field tracking details in the related section, what should you do?<br/>
+**OR**<br/>
+**Q:** What are the reasons field changes might not be tracked?<br/>
+**A:**<br/>
 Possible reasons include:
 
 1. **Field History Tracking** not enabled for that object.
@@ -82,7 +82,7 @@ Possible reasons include:
 
 ### 6. Data vs. Settings Tracking
 
-**Q:** Field tracking helps us to see only “xxx changes,” not “yyy changes.”
+**Q:** Field tracking helps us to see only “xxx changes,” not “yyy changes.”<br/>
 **A:**
 
 * **xxx = Data changes**
@@ -92,7 +92,7 @@ Possible reasons include:
 
 ### 7. Fields That Are Not Fully Tracked
 
-**Q:** History tracking shows “Changed [Field Name]” instead of old/new values for some fields. Which fields are those?
+**Q:** History tracking shows “Changed [Field Name]” instead of old/new values for some fields. Which fields are those?<br/>
 **A:**
 Field tracking does **not** record old and new values for:
 
@@ -105,7 +105,7 @@ Field tracking does **not** record old and new values for:
 
 ### 8. Fields Ineligible for Tracking
 
-**Q:** For which custom fields (below 255 length) can we not enable field tracking? *(Infosys)*
+**Q:** For which custom fields (below 255 length) can we not enable field tracking? *(Infosys)*<br/>
 **A:**
 
 * **Formula Fields**
@@ -114,7 +114,7 @@ Field tracking does **not** record old and new values for:
 
 ### 9. Data Retention
 
-**Q:** How long can we retain data in the Field History Tracking table? *(Disney)*
+**Q:** How long can we retain data in the Field History Tracking table? *(Disney)*<br/>
 **A:**
 
 * **Without coding:** Up to **18 months**
@@ -125,7 +125,7 @@ Field tracking does **not** record old and new values for:
 
 ### 10. Field Tracking Limit
 
-**Q:** How many fields can we track per object? *(Chase Bank)*
+**Q:** How many fields can we track per object? *(Chase Bank)*<br/>
 **A:**
 * You can track **up to 20 fields per object**.
 
