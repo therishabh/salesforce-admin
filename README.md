@@ -15,41 +15,124 @@ If anything we create in Salesforce software by our own efforts = "Custom"
 <b>Q. What is the new field in Salesforce that you worked ? (Tesla Motors, USA)</b><br/>
 A. Time
 
-## Field Tracking
-<b>Q. What are the benefits of field tracking in ur job?</b><br />
-A. 
 
-<b>Q. Can we track standard fields ? (TCS) </b><br />
-A. Yes, Only 2 fields we can track [Owner and Name (Auto Number)]
+---
+---
+---
+---
 
-<b>Q. Which standard fields we can not trackt and why ?</b> <br/>
-A. CreatedBy and LastModifiedBy <br/>
-  Reason: creation record happens only one time thats why Salesforce not provide that facility to track createdBy lastModifiedBy will change complete data we can not track by lastModifiedBy like who change which data and second reason is data is changing very frequently so lastModifiedBy will change many time so Salesforce think there will be no sense to track lastModifiedBy
+## Field History Tracking
 
-<b>Q. What are the issues you face when you depend on data of "Last modified by" to track the data change? Is that totally reliable?(IBM)</b></br>
-A. Last modified by only show who change or modify the fields but with that field we can not track which field is changed, so it's not reliable.
+Field History Tracking allows Salesforce users to monitor changes to specific fields on records, helping in audit, troubleshooting, and data integrity analysis.
 
-<b>Q. If your junior is asking you that he is not able to see field tracking details in related section, what u will do? </br>
-OR</br>
-By what all reasons we can not track the field changes?</b></br>
-A. 
+### 1. Benefits of Field Tracking
 
-<b>Q. Field tracking helps us to see only "xxx changes". Not "yyy changes".</b></br>
-A. xxx = data, yyy = settings 
+**Q:** What are the benefits of field tracking in your job?
+**A:**
 
-<b>Q. History tracking feature tracks new and old value for most of the fields but for some fields, it will not do such check. It will only show "Changed xxxxx."
-(xxxx = field name)</b></br>
-A. Formula Fields, Encrypted Fields,  Rich textfield, long textfield, multiselect picklist, more than 255 character field
+* Helps identify **who changed what and when**.
+* Useful for **auditing** and maintaining **data accuracy**.
+* Supports **compliance** and **debugging** by providing a history of field changes.
+* Enables better **user accountability** and **data governance**.
 
-<b>Q. For which custom field (below 255 length) we can not have field tracking?(Infosys)</b></br>
-A. Formula Field, Auto Number, Role of summary.
+### 2. Tracking Standard Fields
 
-<b>Q. Data in history table, how long we can retain that data (Disney)</b></br>
-A. 18 months without coding, with coding we can retain 24 months.</br>
-<b>Field history tracking data doesn't count against your Salesforce org's data storage limits.</b></br>
+**Q:** Can we track standard fields? *(TCS)*
+**A:**
+Yes — but only **two** standard fields can be tracked:
 
-<b>Q. How many fields we can track per object? (Chase Bank)</b><br/>
-A. 20 fields
+* **Owner**
+* **Name (Auto Number)**
+
+### 3. Standard Fields That Cannot Be Tracked
+
+**Q:** Which standard fields cannot be tracked, and why?
+**A:**
+
+* **CreatedBy** and **LastModifiedBy** cannot be tracked.
+
+**Reasons:**
+
+1. **CreatedBy** – Record creation happens only once, so Salesforce does not provide tracking for this field.
+2. **LastModifiedBy** – This field updates frequently, and tracking it would not add meaningful insights since it changes with every edit. Also, it doesn’t specify **which fields** were changed.
+
+
+### 4. Reliability of "Last Modified By"
+
+**Q:** What issues arise when relying on "Last Modified By" for tracking data changes? *(IBM)*
+**A:**
+
+* It only shows **who modified** the record, **not which fields** were changed.
+* Therefore, it is **not a reliable source** for detailed change tracking.
+
+### 5. When Field Tracking Details Are Missing
+
+**Q:** If a user cannot see field tracking details in the related section, what should you do?
+**OR**
+**Q:** What are the reasons field changes might not be tracked?
+**A:**
+Possible reasons include:
+
+1. **Field History Tracking** not enabled for that object.
+2. Specific fields were **not selected** for tracking.
+3. Field type is **unsupported** for tracking (e.g., Formula or Long Text fields).
+4. **User profile permissions** or **field-level security** settings prevent visibility.
+5. Field tracking history is **older than the retention limit** and has been purged.
+
+
+### 6. Data vs. Settings Tracking
+
+**Q:** Field tracking helps us to see only “xxx changes,” not “yyy changes.”
+**A:**
+
+* **xxx = Data changes**
+* **yyy = Settings changes**
+
+*Field tracking only records changes to data values, not configuration or metadata changes.*
+
+### 7. Fields That Are Not Fully Tracked
+
+**Q:** History tracking shows “Changed [Field Name]” instead of old/new values for some fields. Which fields are those?
+**A:**
+Field tracking does **not** record old and new values for:
+
+* **Formula Fields**
+* **Encrypted Fields**
+* **Rich Text Areas**
+* **Long Text Areas**
+* **Multi-select Picklists**
+* Fields with **more than 255 characters**
+
+### 8. Fields Ineligible for Tracking
+
+**Q:** For which custom fields (below 255 length) can we not enable field tracking? *(Infosys)*
+**A:**
+
+* **Formula Fields**
+* **Auto Number Fields**
+* **Roll-Up Summary Fields**
+
+### 9. Data Retention
+
+**Q:** How long can we retain data in the Field History Tracking table? *(Disney)*
+**A:**
+
+* **Without coding:** Up to **18 months**
+* **With coding (via API or export):** Up to **24 months**
+
+> **Note:** Field History Tracking data does **not count** against your Salesforce org’s **data storage limits**.
+
+
+### 10. Field Tracking Limit
+
+**Q:** How many fields can we track per object? *(Chase Bank)*
+**A:**
+* You can track **up to 20 fields per object**.
+
+---
+---
+---
+---
 
 ## Field Deletion consideration 
 Here’s a clean, professional, and well-organized version of your documentation text — formatted for clarity and usability:
@@ -67,8 +150,6 @@ Here’s a clean, professional, and well-organized version of your documentation
 * Both deleted **records** and **fields** remain recoverable for **15 days**.
 * After **15 days**, they are **permanently deleted** and cannot be restored.
 
----
-
 ### Additional Notes
 
 * If you want to **free up storage space**, you must **permanently delete** the fields.
@@ -77,8 +158,6 @@ Here’s a clean, professional, and well-organized version of your documentation
   * **Best Practice:** Permanently delete unused fields when you no longer need them.
 * You can check **field limitations and usage** by navigating to:
   **Setup → Object Manager → [Object Name] → Object Limits**
-
----
 
 ### Field Recovery Behavior
 
@@ -89,14 +168,10 @@ Here’s a clean, professional, and well-organized version of your documentation
 ### Additional Details
 
 * Once a field is deleted:
-
   * It no longer appears on the **detail page**.
   * It is also removed from the **field history tracking** section.
 * When a deleted field is recovered:
-
   * Its **data** and **history** are restored.
-
----
 
 #### Recovery Limitations
 
@@ -105,8 +180,6 @@ Here’s a clean, professional, and well-organized version of your documentation
 | Object       | ✅ Yes        |
 | Field        | ✅ Yes        |
 | App          | ❌ No         |
-
----
 
 ### Important Rules for Field Deletion and Recovery
 
@@ -122,7 +195,6 @@ When fields are **deleted and later recovered**, certain properties and behavior
 
   * Manually re-enable the **Unique** attribute after recovery if uniqueness is required.
 
----
 
 #### 2. Required Fields
 
@@ -136,7 +208,6 @@ When fields are **deleted and later recovered**, certain properties and behavior
   1. Go to **Set Field-Level Security** and re-enable visibility for the appropriate profiles.
   2. Open the **Edit Field** section and re-select the **Required** checkbox.
 
----
 
 #### 3. Custom Fields and Page Layouts
 
@@ -147,8 +218,6 @@ When fields are **deleted and later recovered**, certain properties and behavior
 * **Action Required:**
 
   * Navigate to **Page Layouts** and **manually drag and drop** the recovered field into the desired section.
-
----
 
 #### Summary
 
