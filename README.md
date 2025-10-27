@@ -54,9 +54,8 @@ A. 20 fields
 ## Field Deletion consideration 
 Here’s a clean, professional, and well-organized version of your documentation text — formatted for clarity and usability:
 
----
 
-## Recycle Bin: Records vs. Fields
+### Recycle Bin: Records vs. Fields
 
 ### 1. Difference
 
