@@ -233,24 +233,34 @@ When fields are **deleted and later recovered**, certain properties and behavior
 ---
 
 ## Global Picklist
-- Global picklist or Global value set or Picklist value set
+A Global Picklist (also known as a Global Value Set or Picklist Value Set) is a reusable list of picklist values that can be shared across multiple objects and fields within Salesforce.
+This helps maintain consistency, data integrity, and easier maintenance when the same set of options is used in multiple places.
 
 How to decide when we need to create a local or a global PL?</br>
 - Becoming proactive in ur project</br>
 - Check requirement doc neatly</br>
 - Asking BA
 
-<b>Q. Can we convert local PL to Global PL?</b></br>
-A. Yes.
+<b>Q: Can we convert local PL to Global PL?</b></br>
+**A:** ✅ Yes, we can. Salesforce allows converting a **Local Picklist** to a **Global Value Set**.
 
-<b>Q.Major difference while working on local and global PL? (Nokia)</b></br>
-A. in local picklist we can enable 
+<b> Major difference while working on local and global PL? (Nokia)</b></br>
+**A:** 
+* In **Local Picklists**, you can **enable custom settings** such as:
+
+  * **Restrict picklist to the values defined** (optional).
+  * **Add unique values per object**.
+* In **Global Picklists**, the value options are **centrally managed** and **restricted** to the defined global set.
+* Any change to a **Global Value Set** reflects across **all dependent picklist fields** using it.
 
 #### Important Notes:-
-- Limit | Useful Points for global picklist:</br>
-   - 1 Org = 500 GPL
-   - 1 GPL = Upto 1k active/inactive values
-   - Number of local PLs for 1 GPL = No limit
+#### Limits and Useful Points for Global Picklists
+
+| Limit / Feature                                               | Description                                           |
+| ------------------------------------------------------------- | ----------------------------------------------------- |
+| **Global Picklists per Org**                                  | Up to **500** Global Picklists                        |
+| **Values per Global Picklist**                                | Up to **1,000 active/inactive values**                |
+| **Number of Local Picklists referencing one Global Picklist** | **Unlimited**                                         |
 
 
 ## Field Dependency
