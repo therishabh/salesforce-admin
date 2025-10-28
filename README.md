@@ -112,6 +112,7 @@ Field tracking does **not** record old and new values for:
 * Fields with **more than 255 characters**
 
 ### 8. Fields Ineligible for Tracking
+Field History Tracking is a powerful feature in Salesforce that allows admins to track and audit changes to specific fields in Salesforce records. This functionality is essential for data governance, compliance, and troubleshooting. With Field History Tracking, you can monitor who modified the data, when, and what the previous values were.
 
 **Q:** For which custom fields (below 255 length) can we not enable field tracking? *(Infosys)*<br/>
 **A:**
@@ -142,9 +143,7 @@ Field tracking does **not** record old and new values for:
 ---
 ---
 
-## Field Deletion consideration 
-Here’s a clean, professional, and well-organized version of your documentation text — formatted for clarity and usability:
-
+## Field Deletion Considerations 
 
 ### Recycle Bin: Records vs. Fields
 
