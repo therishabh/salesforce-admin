@@ -1,4 +1,12 @@
-# Notes
+# Salesforce Admin
+
+## Table of Contents
+
+1. [Field History Tracking](#field-history-tracking)
+2. [Field Deletion Considerations](#field-deletion-considerations)
+3. [Global Picklist](#global-picklist)
+4. [Field Dependency](#field-dependency)
+5. 
 
 ## Salesforce Basic
 - Salesforce Classic Experience (CEX)
