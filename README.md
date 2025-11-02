@@ -388,6 +388,53 @@ You select the **same field** as both the **controlling** and **dependent** fiel
 ---
 ---
 
+## Validation Rules
+
+**Validation Rules** in Salesforce are used to **check that the data entered by users is correct and complete** before saving it.
+
+If the data doesn’t meet certain conditions, the rule **shows an error message** and **stops the record from being saved** until it’s fixed.
+
+**Example:**
+Let’s say you want to make sure every Opportunity has an **Amount** when the **Stage = “Closed Won”**.
+You can create a validation rule like this:
+
+```
+AND(
+  ISPICKVAL(StageName, "Closed Won"),
+  ISBLANK(Amount)
+)
+```
+
+If someone tries to save a “Closed Won” Opportunity without an Amount, Salesforce will show an error — this keeps your data clean and accurate.
+
+**In short:**
+👉 Validation Rules = “Data gatekeepers” that make sure only good, correct data gets saved in Salesforce.
+
+**Q: What issues can a business face with bad data?**
+
+1. **Wrong Reports and Decisions** – If data is incorrect, reports show wrong numbers, and managers may take bad business decisions.
+2. **Customer Problems** – Wrong phone numbers or emails mean customers don’t get proper service or updates.
+3. **Wasted Time** – Teams spend extra time fixing data instead of doing real work.
+4. **Loss of Sales or Revenue** – Leads might go to the wrong person or deals get missed.
+5. **System Errors** – Bad data can break automation or cause issues when systems talk to each other.
+6. **Legal Issues** – Incomplete or wrong data might cause compliance problems.
+
+**Example:**
+If an Opportunity is marked as “Closed Won” but has no “Amount,” the sales report will be wrong.
+
+**That’s why we use validation rules** — to stop users from saving bad or incomplete data in the first place.
+
+
+---
+### [Interview Questions](https://github.com/therishabh/salesforce-admin/blob/main/validation-rules.md)
+---
+---
+---
+---
+---
+
+
+
 ## Formula Fields
 - There is no such scope for user to enter the data in formula field, Formula field always copy the data from other field.
 - In formula field target fields / Output filed can not be picklist and textarea.
