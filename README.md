@@ -270,70 +270,120 @@ How to decide when we need to create a local or a global PL?</br>
 | **Number of Local Picklists referencing one Global Picklist** | **Unlimited**                                         |
 
 
+---
+---
+---
+---
+
 ## Field Dependency
-In Salesforce, field dependency refers to the relationship between two fields on a Salesforce object where the values available in one field depend on the value selected in another field. This feature allows you to create dynamic behavior in your Salesforce application based on the selections made by users.
 
-In field dependency, there will be only 2 types of fields:</br>
-1. Controlling field (primary)</br>
-2. Dependent field (secondary)</br>
+## 📘 What is Field Dependency?
 
-<b>Q. Which all are valid fields for field dependency?</b></br>
-A. Picklist, Picklist (multiselect), Checkbox
+In **Salesforce**, *field dependency* defines a relationship between **two fields** on an object where the **values available in one field (Dependent Field)** depend on the **value selected in another field (Controlling Field)**.
 
-<b>Q. Which fields can be used as Controlling field? (Infosys)</b></br>
-A. Picklist and Checkbox
+This feature helps create **dynamic, user-friendly picklists** and ensures data consistency.
 
-<b>Q. Which fields can be used as a Dependent field? (Infosys)</b></br>
-A. Picklist and Multiselect Picklist
+### 🔗 Field Types Involved
 
-Notes : 
-- If you'll delete controlling field or dependent field and then undelete that field then field dependency will not retain.
-- Hide or show Field is not possible.
-- Hide or show values is possible.
-- A picklist which are controlling can contain max <b>300</b> values, but a picklist which are dependent can contain max <b>1000</b> values.
-- LOV = List of values (all values which will show in dropdown or you can say in picklist)
-- if customer provide you a excel file than you can easly add all LOV by copy paste only.
-- A picklist which is standalone that means not connected with any other fields then max value it can contain is <b>1000</b> only.
-- In Salesforce, the maximum character limit for a single picklist value is 255 characters.
-- In Salesforce multilevel dependencies are possible (Ex: Country -> State -> City )
+There are **two types of fields** in a field dependency:
 
-<b>Q. What are the limitation of field dependency features ?(Disney)</b></br>
-A. 1. all process need to done manually and when we have large amount of data like 200-300 records then this is not a easy solution. </br>
-2. It is limited to only 3 types of fields (picklist, multiselect picklist, checkbox)</br>
-3. after undelete dependency gone.</br>
-4. Only control value of the field not able to control field itself.</br>
+1. **Controlling Field (Primary Field)**
+   Determines which values are available in the dependent field.
 
-<b>Q. Country is controlling State. State is controlling City.</br>
-Country = limit?</br>
-State = limit?</br>
-City = limit?</b></br>
-A. Country = 300</br>
-State = 300 </br>
-City = 1000 </br>
+2. **Dependent Field (Secondary Field)**
+   Displays values based on the controlling field selection.
 
 
-<b>Q. If ur junior is facing limit issue while creating picklist of large data in ur project, then what can be the possible issues?</br>
-(the field is NOT dependent of anything. no connection.)</b></br>
-A. 1.LOVs going above 1000 count</br>
+### ✅ Valid Field Types for Field Dependency
 
-2. Characters exceeded more than 15k (IMP IQ)</br>
-(Many people in market dont know this!!!)</br>
+| Type                      | Can be Controlling? | Can be Dependent? |
+| ------------------------- | ------------------- | ----------------- |
+| **Picklist**              | ✅                   | ✅                 |
+| **Multi-Select Picklist** | ❌                   | ✅                 |
+| **Checkbox**              | ✅                   | ❌                 |
 
-Means, assume, we have country PL with below values.</br>
-India</br>
-USA</br>
-Canada</br>
 
-(India(5) +USA(3) +Canada(6) ..etc ==> total char limit must be below 15k)</br>
+### 🧠 Key Notes
 
-current situation = 14/15000</br>
+* If you **delete** a controlling or dependent field and later **undelete** it, the **field dependency is lost**.
+* You **cannot hide or show fields**, only **hide or show specific field values**.
+* A **controlling picklist** can contain **up to 300 values**.
+  A **dependent picklist** can contain **up to 1000 values**.
+* A **standalone picklist** (not connected as dependent or controlling) can also contain **up to 1000 values**.
+* The **maximum character limit** for a single picklist value: **255 characters**.
+* **Multi-level dependencies** are supported (e.g. `Country → State → City`).
+* **LOV (List of Values):** All available picklist options shown in a dropdown.
+  You can easily add them by **copy-pasting from an Excel sheet**.
 
-<b>Q. Have u seen this error in ur project? </br>
-"the field you chose is directly or indirectly dependent on itself." </br>
-When?</b></br>
-A. when user will select controlling field and dependent field same.
 
-<b></b></br>
+### ⚠️ Limitations of Field Dependency (Interview Tip)
+
+*(Common question — e.g., Disney, Infosys)*
+
+1. Configuration must be done **manually** — not ideal for large datasets (e.g., 200–300+ records).
+2. Limited to **3 field types only** (Picklist, Multi-Select Picklist, Checkbox).
+3. If you **undelete** fields, **dependencies are lost**.
+4. You can only **control field values**, not the **field visibility itself**.
+
+
+### 🌍 Example — Multi-level Dependency
+
+**Country → State → City**
+
+| Field                             | Limit       |
+| --------------------------------- | ----------- |
+| **Country (Controlling)**         | 300 values  |
+| **State (Controlling/Dependent)** | 300 values  |
+| **City (Dependent)**              | 1000 values |
+
+---
+
+### 🧩 Common Issues & Error Scenarios
+
+#### 1. **Picklist Limit Errors**
+
+If a **standalone picklist** exceeds limits:
+
+* ✅ **Value count**: Max **1000 values**
+* ✅ **Character count**: Total **≤ 15,000 characters** across all values
+  *(e.g., “India(5) + USA(3) + Canada(6)” → Total = 14/15000 OK)*
+
+**Tip:** Use shorter value names or group data if exceeding limits.
+
+---
+
+#### 2. **Circular Dependency Error**
+
+> “The field you chose is directly or indirectly dependent on itself.”
+
+**Occurs When:**
+You select the **same field** as both the **controlling** and **dependent** field.
+
+
+### 🧾 Quick Recap
+
+| Concept               | Key Point                                 |
+| --------------------- | ----------------------------------------- |
+| Relationship          | Controlling → Dependent                   |
+| Allowed Field Types   | Picklist, Multi-Select Picklist, Checkbox |
+| Max Values            | Controlling = 300, Dependent = 1000       |
+| Total Character Limit | 15,000 per picklist                       |
+| Multi-Level Example   | Country → State → City                    |
+| Common Error          | Field dependent on itself                 |
+| After Undelete        | Dependency lost                           |
+
+
+### 💡 Pro Tips
+
+* Use **Excel** to prepare and import picklist values efficiently.
+* Always plan dependencies **before creating fields** to avoid rework.
+* Keep **value names short and meaningful** to stay within limits.
+* For **large datasets**, consider **automation or metadata APIs** instead of manual setup.
+
+---
+---
+---
+---
 
 ## Formula Fields
 - There is no such scope for user to enter the data in formula field, Formula field always copy the data from other field.
