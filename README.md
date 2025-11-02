@@ -424,7 +424,7 @@ If an Opportunity is marked as “Closed Won” but has no “Amount,” the sal
 
 **That’s why we use validation rules** — to stop users from saving bad or incomplete data in the first place.
 
-## ⚙️ **Salesforce Validation Rule Limits (Per Object & Org-Wide)**
+### ⚙️ **Salesforce Validation Rule Limits (Per Object & Org-Wide)**
 
 | **Type**                               | **Limit**                                                                                   | **Notes / Explanation**                                                                             |
 | -------------------------------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
