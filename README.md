@@ -336,7 +336,6 @@ There are **two types of fields** in a field dependency:
 | **State (Controlling/Dependent)** | 300 values  |
 | **City (Dependent)**              | 1000 values |
 
----
 
 ### 🧩 Common Issues & Error Scenarios
 
@@ -350,7 +349,6 @@ If a **standalone picklist** exceeds limits:
 
 **Tip:** Use shorter value names or group data if exceeding limits.
 
----
 
 #### 2. **Circular Dependency Error**
 
