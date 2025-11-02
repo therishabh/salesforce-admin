@@ -424,6 +424,45 @@ If an Opportunity is marked as “Closed Won” but has no “Amount,” the sal
 
 **That’s why we use validation rules** — to stop users from saving bad or incomplete data in the first place.
 
+## ⚙️ **Salesforce Validation Rule Limits (Per Object & Org-Wide)**
+
+| **Type**                               | **Limit**                                                                                   | **Notes / Explanation**                                                                             |
+| -------------------------------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| **Per Object**                         | ✅ **500 active validation rules**                                                           | You can create up to 500 *active* validation rules on a single object (Standard or Custom).         |
+| **Per Org (Total Across All Objects)** | ⚙️ **No hard global limit**, but **practical limit = object-level cap × number of objects** | Salesforce does not enforce a total org-wide cap — but total active rule count impacts performance. |
+| **Inactive Rules**                     | Unlimited (metadata only)                                                                   | Inactive rules don’t count toward runtime limits but still occupy metadata storage.                 |
+| **Formula Size**                       | 3,900 characters (text) / 5,000 bytes (compiled)                                            | Applies to each individual validation rule formula.                                                 |
+| **Error Message Limit**                | 255 characters                                                                              | The text displayed to the user when rule fires.                                                     |
+| **Evaluation Limit per Transaction**   | Up to 10 error messages can be displayed at once                                            | If multiple rules evaluate to TRUE, Salesforce shows a maximum of 10.                               |
+
+### 🧩 **Interpretation for Interviews**
+
+When asked:
+
+> “How many validation rules can we have per object and in the org?”
+
+You can confidently answer:
+
+> “Salesforce allows up to **500 active validation rules per object**.
+> There’s **no official total org-wide limit**, but performance and manageability usually degrade long before that.
+> Inactive rules don’t count toward runtime limits but still consume metadata space.”
+
+### ⚠️ **Performance & Maintainability Considerations**
+
+Even though Salesforce allows **500 rules**, that’s a *theoretical upper limit*.
+In real enterprise orgs:
+
+* Having **>100 validation rules per object** can start slowing record saves.
+* Too many rules can make debugging, deployment, and maintenance painful.
+* Recommended approach:
+
+  * Combine similar conditions where possible.
+  * Use **custom metadata toggles** to centralize logic.
+  * Use **Flows or Apex validations** for complex conditional logic that can’t fit in formulas.
+
+
+
+
 
 ---
 ### [Interview Questions](https://github.com/therishabh/salesforce-admin/blob/main/validation-rules.md)
