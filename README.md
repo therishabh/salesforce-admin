@@ -378,7 +378,10 @@ You select the **same field** as both the **controlling** and **dependent** fiel
 * Keep **value names short and meaningful** to stay within limits.
 * For **large datasets**, consider **automation or metadata APIs** instead of manual setup.
 
-## [Interview Questions](https://github.com/therishabh/salesforce-admin/blob/main/Salesforce%20Field%20Dependency.md)
+---
+### [Interview Questions](https://github.com/therishabh/salesforce-admin/blob/main/Salesforce%20Field%20Dependency.md)
+---
+
 
 ---
 ---
