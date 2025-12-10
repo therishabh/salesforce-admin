@@ -7,6 +7,8 @@
 3. [Global Picklist](#global-picklist)
 4. [Field Dependency](#field-dependency)
 5. [Validation Rules](#validation-rules)
+6. [Formula Fields](#formula-fields)
+7. [Page Layout](#page-layout)
 
 ## Salesforce Basic
 - Salesforce Classic Experience (CEX)
