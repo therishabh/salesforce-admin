@@ -1,4 +1,4 @@
-# 🚀 **Salesforce Page Layout – Senior Developer Level 20 Questions & Answers (Hinglish + Detailed)**
+# 🚀 **Salesforce Page Layout **
 
 ---
 
