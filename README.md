@@ -637,40 +637,193 @@ Yahan kuch most common scenarios hain jo Salesforce projects mein use hote hain:
 ---
 ---
 
-## Formula Fields
-- There is no such scope for user to enter the data in formula field, Formula field always copy the data from other field.
-- In formula field target fields / Output filed can not be picklist and textarea.
-- In formula field soruce field from where you are taking data can be picklist or textarea.
-- Picklist = ISPICKVAL()
-- Picklist Multi Select = INCLUDES()
-- we can convert entire content into text with the help of TEXT() function.
-- Today() -------> only current date
-- Now() ---------> current date and time
-- Formula fields can contain up to 3900 characters, including spaces, return characters (ENTER), and comments.
-- 
 
-- <b>Q. What is formula field?</b></br>
-A.
-  - This is a special type of field or advanced field
-  - User can not make entry in this field.
-  - data will be auto populated.
-  - Data will be come from another field of from our business logic or some calculations but not directly from user.
-  - This is also called as readonly field.
-  - we can use cross object formula field. (COFF), when we copy data where the field present in other table, this is also possible
-
-- <b>Which type of field can NOT become a Formula Field ?</br>
-(select 2 wrong options)</br>
-Text</br>
-Number</br>
-Percentage</br>
-Picklist</br>
-Text Area</b></br>
-A. Textarea and Picklist
+## Page Layout
 
 
-- <b>Q. What is limit of spanning relationships per object ?</b></br>
-  A. 15 (spanning relationship means a bridge between two objects)
+### 🟦 **1. Page Layout Kya Hota Hai? (What is Page Layout?)**
 
+Page Layout Salesforce ka **UI configuration tool** hota hai jiske through hum:
+
+* Fields ka arrangement set karte hain
+* Sections banate hain
+* Buttons, Related Lists, Quick Actions add/remove karte hain
+* Field-level visibility control karte hain (per layout basis)
+* Record page ka overall structure define karte hain
+
+Ye sirf **UI configuration** hota hai, koi backend logic nahi hota.
+
+---
+
+### 🟦 **2. Page Layout Use Kaha Hota Hai? (Purpose in Projects)**
+
+Page Layout ka main use hota hai **role-wise customized record experience dena**.
+
+#### 👉 **With Page Layout, a project can:**
+
+* 🔹 Field order set karna (kaun sa field kaha dikhna chahiye)
+* 🔹 Fields ko Required / Read-Only banana (layout level per)
+* 🔹 Sections create karke data ko logically group karna
+* 🔹 Buttons add/remove karna (Edit, Delete, Clone, Custom Buttons, Quick Actions)
+* 🔹 Related Lists ko reorder karna
+* 🔹 Compact Layouts ke liye fields choose karna
+* 🔹 Mini Page Layout configure karna (Console view)
+* 🔹 Different Profiles ke liye different layout assign karna
+
+**Real project example:**
+Sales team ke liye Opportunity layout me sirf sales-related fields, par Support team ke liye support-related fields dikhana.
+
+---
+
+### 🟦 **3. Clone Button Ka Use Kya Hai?**
+
+**Clone button ek existing record ka copy banane ke liye use hota hai.**
+
+#### 👉 Clone Button kya karta hai?
+
+* Old record ke saare fields ko auto-fill karta hai
+* User new record create kar sakta hai bina dobara sab data type kiye
+* Time save hota hai repetition avoid hota hai
+
+#### 👉 Project Example:
+
+* “Invoice” record duplicate karke new invoice banana
+* “Case” record ko clone karke similar issue quickly log karna
+* “Opportunity” close lost hua toh same data ke sath new opportunity create karna
+
+**Note:** Lookup fields, system fields (CreatedDate), aur unique fields clone nahi hote.
+
+---
+
+### 🟦 **4. Ek Salesforce Page Layout me Kitne Columns Hote Hain?**
+
+**Page Layout → Maximum 2 Columns**
+Salesforce page layout section sirf **2-column structure** allow karta hai.
+
+> Lightning Record Page me flexible layout hota hai, par **Page Layout me fixed 2-column** hota hai.
+
+---
+
+### 🟦 **5. Salesforce Table (Object) me Kitne Fields Ho Sakte Hain?**
+
+Ye question thoda tricky hai kyunki ye **Page Layout** ka part nahi, Object Limit ka part hai.
+
+Salesforce me **Custom Object per field limit hoti hai**, approx:
+
+#### 👉 **Custom Object Field Limit (General Editions)**
+
+* Enterprise Edition: **500 fields per object**
+* Unlimited Edition: **900 fields per object**
+
+*(Exact limit org edition per depend karta hai)*
+
+---
+
+### 🟦 **6. Page Layout se Hum Kya-Kya Control Kar Sakte Hain?**
+
+Below items **Page Layout me fully controllable** hain:
+
+#### ✔ Fields
+
+#### ✔ Related Lists
+
+#### ✔ Buttons
+
+#### ✔ Quick Actions
+
+#### ✔ Sections
+
+#### ✔ Report Charts (Classic only)
+
+#### ✔ Custom Links
+
+#### ✔ Compact Layout assignments
+
+---
+
+### 🟦 **7. Page Layout se Kin Fields Ko Remove Nahi Kar Sakte?**
+
+Some fields **mandatory system-level fields** hote hain jinke bina object exist nahi karta.
+
+#### ❌ **These fields can NOT be removed from Page Layout:**
+
+* **Name field** (Auto Number or Text)
+* **Owner field**
+* **Created By**
+* **Last Modified By**
+* **System fields** (Record ID, etc.)
+* **Some Standard Required Fields** (Contact: Last Name etc.)
+
+**Note:**
+Remove nahi kar sakte per **Read-Only** kar sakte ho (some cases).
+
+---
+
+### 🟦 **8. Page Layout Assignment**
+
+Page Layout assignment **Profile** ya **Record Type** based hota hai.
+
+#### Example:
+
+* Sales Profile → Sales Layout
+* Support Profile → Support Layout
+* US Customers → US Customer Layout
+* India Customers → India Customer Layout
+
+---
+
+### 🟦 **9. Page Layout ki Best Practices**
+
+#### ✔ Field order logical rakho
+
+#### ✔ Similar fields ko ek section me group karo
+
+#### ✔ Non-used fields ko layout se hatao
+
+#### ✔ Buttons ko profile-wise customize karo
+
+#### ✔ Required fields layout se mat lagao unless needed
+
+#### ✔ Different teams ke liye different layout maintain karo
+
+---
+
+### 🟦 **10. Salesforce Recommendation: 200 Page Layouts Per Object**
+
+Salesforce recommend karta hai:
+
+> **Best practice = 200 page layouts per object se zyada mat banao**
+
+Reason:
+
+* Performance issues
+* Maintenance heavy ho jata hai
+* Assignment complexity badh jati hai
+
+---
+
+### 🟦 **11. Page Layout vs Lightning Record Page (Important)**
+
+#### ➤ **Page Layout**
+
+* Fields, sections, related lists, buttons control karta hai
+* 2-column structure
+* Profile/Record Type wise assign hota hai
+
+#### ➤ **Lightning Record Page (Flexi-Page)**
+
+* Components ka arrangement control karta hai
+* Page Builder se banate ho
+* More flexible (1, 2, 3 column + dynamic visibility)
+
+
+---
+### [Interview Questions](https://github.com/therishabh/salesforce-admin/blob/main/Page%20Layout.md)
+---
+---
+---
+---
+---
 
 ## Relationship in Salesforce
 
