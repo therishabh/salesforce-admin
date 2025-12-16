@@ -825,6 +825,420 @@ Reason:
 ---
 ---
 
+Bilkul 👍
+Neeche maine tumhare **Salesforce Relationship** ke notes ko **proper structure, clear flow, correct wording, aur missing important points ke saath** complete karke likh diya hai.
+Language **Hinglish**, explanation **simple**, aur **interview + real project (RTP)** dono ke liye useful hai.
+
+---
+
+## Relationships
+
+### 1. What is Relationship in Salesforce?
+
+**Relationship** ka matlab hai Salesforce me **do ya zyada objects ko aapas me connect karna** taaki data ek dusre se linked rahe.
+
+> Real-time projects (RTP) me almost kabhi bhi isolated object use nahi hota.
+> Maximum cases me objects ke beech relationship banana hi padta hai.
+
+---
+
+### 2. Types of Relationships in Salesforce
+
+Salesforce me mainly ye relationships hoti hain:
+
+1. **Lookup Relationship (LR)**
+2. **Master-Detail Relationship (MDR)**
+3. **Many-to-Many Relationship**
+4. **Hierarchical Relationship**
+5. **Self Relationship**
+6. **External Lookup Relationship** (External Objects ke liye)
+
+---
+
+### 3. Lookup Relationship (LR)
+
+#### Definition
+
+Lookup Relationship ek **loosely coupled relationship** hoti hai jisme objects independent hote hain.
+
+##### Key Features of Lookup Relationship
+
+* Standard aur Custom dono objects ke saath kaam karta hai
+* Relationship optional hoti hai (mandatory nahi)
+* Parent delete hone par child record **delete nahi hota**
+* Child record ka **own owner hota hai**
+* Reparenting by default allowed hoti hai (parent change kar sakte ho)
+* **Roll-up Summary allowed nahi hota**
+
+#### When to use Lookup Relationship?
+
+* Jab strong dependency nahi chahiye
+* Jab child record independently exist kar sakta ho
+
+#### Problems with Lookup Relationship
+
+* Mandatory / strong connection ke liye suitable nahi
+* Data integrity loose hoti hai
+
+---
+
+### 4. Master-Detail Relationship (MDR)
+
+#### Definition
+
+Master-Detail Relationship ek **strongly coupled relationship** hoti hai jisme child record completely parent par dependent hota hai.
+
+---
+
+#### Key Characteristics of Master-Detail Relationship
+
+1. **Parent–Child Relationship**
+
+   * Master = Parent
+   * Detail = Child
+
+2. **Cascade Delete**
+
+   * Agar master record delete hota hai, to **saare child records automatically delete ho jaate hain**
+
+3. **Recycle Bin Behavior**
+
+   * Delete karne par recycle bin me **sirf master record dikhega**
+   * Child records backend me hote hain
+   * Master restore karte hi saare related child records bhi restore ho jaate hain
+
+4. **Ownership and Sharing**
+
+   * Child record ka **Owner field nahi hota**
+   * Child record, master record ka owner aur sharing settings inherit karta hai
+
+5. **Roll-Up Summary**
+
+   * Sirf MDR me available hota hai
+   * Sirf **Parent (Master) object** par create hota hai
+   * Summary types: **Count, Sum, Min, Max**
+
+6. **Field Limits**
+
+   * Ek object me maximum **2 Master-Detail Relationships** ho sakti hain
+   * Ek object me maximum **40 Roll-Up Summary fields** ho sakte hain
+   * Ek object me maximum **40 LR + MD** ho sakte hain
+
+7. **Reparenting**
+
+   * By default allowed nahi hoti
+   * Relationship create karte time **“Allow Reparenting”** checkbox enable karna padta hai
+
+---
+
+### 5. Roll-Up Summary Field
+
+#### What is Roll-Up Summary?
+
+Roll-Up Summary ek special field hai jo **child records ka summary data parent record par show karta hai**.
+
+#### Supported Calculations
+
+* COUNT
+* SUM
+* MIN
+* MAX
+
+#### Supported Field Types for Aggregation
+
+* Number
+* Currency
+* Date
+* DateTime
+* Percentage
+
+> Roll-Up Summary **sirf Master-Detail Relationship me kaam karta hai**, Lookup me nahi.
+
+---
+
+### 6. Data Skew in Salesforce
+
+#### What is Data Skew?
+
+Data Skew ek **performance issue** hai jo tab hota hai jab:
+
+* Ek master record ke under **10,000+ child records** ho jaate hain
+
+### Impact
+
+* Sharing recalculation slow ho jaata hai
+* Reports aur queries slow ho jaati hain
+
+---
+
+### 7. Relationship Limits (Important for Interview)
+
+* Ek object me:
+
+  * **Max 40 Lookup Relationships**
+  * **Max 2 Master-Detail Relationships**
+  * **Max 40 Roll-Up Summary fields**
+
+---
+
+### 8. Standard Object Rules in Master-Detail Relationship
+
+#### Important Salesforce Rule
+
+**STANDARD OBJECTS CAN'T BE ON THE DETAIL SIDE WHEN IN MASTER SIDE ANY CUSTOM OBJECT IS PRESENT, IN MASTER-DETAIL RELATIONSHIP.**
+
+#### Check the Scenarios (Interview Question)
+
+| Scenario                             | Possible?      |
+| ------------------------------------ | -------------- |
+| Master = Custom, Detail = Standard   | ❌ Not Possible |
+| Master = Custom, Detail = Custom     | ✅ Possible     |
+| Master = Standard, Detail = Standard | ✅ Possible     |
+| Master = Standard, Detail = Custom   | ✅ Possible     |
+
+✔ **Correct Answer:** Scenario 1 is NOT possible
+
+---
+
+### 9. Special Object Limitations in MDR
+
+* **Leads** aur **Users** kabhi bhi Master side par nahi ho sakte
+* Ye Salesforce ke internal restrictions hain
+
+---
+
+### 10. One-to-Many, One-to-One, Many-to-Many
+
+* Salesforce **by default One-to-Many** relationship support karta hai
+* **One-to-One** aur **Many-to-Many** ke liye extra configuration karni padti hai
+
+### Many-to-Many Relationship
+
+#### 1. What is Many-to-Many Relationship?
+
+Many-to-Many relationship ka matlab hai:
+
+* **Ek record multiple records se connect ho sakta hai**
+* **Aur dusri side ka record bhi multiple records se connect ho sakta hai**
+
+👉 Salesforce **directly** many-to-many support nahi karta,
+isliye hum **Junction Object** use karte hain.
+
+---
+
+#### 2. Why Salesforce Needs Junction Object?
+
+Salesforce ka native design **One-to-Many** pe based hai.
+Many-to-Many achieve karne ke liye:
+
+* Ek **third object** create karte hain
+* Jo dono parent objects ko connect karta hai
+* Isko hi **Junction Object** kehte hain
+
+---
+
+#### 3. Structure of Many-to-Many Relationship
+
+#### Example: Student ↔ Course
+
+* **Student** (Parent Object 1)
+* **Course** (Parent Object 2)
+* **Enrollment** (Junction Object)
+
+#### Relationships:
+
+* Enrollment → Student (Master-Detail)
+* Enrollment → Course (Master-Detail)
+
+👉 Dono sides se **strong dependency** hoti hai.
+
+---
+
+#### 4. Why Master-Detail is Preferred in Junction Object?
+
+#### Reasons:
+
+* Data integrity strong hoti hai
+* Roll-Up Summary possible hota hai
+* Parent delete hone par related junction records delete ho jaate hain
+* Security & ownership parents se inherit hoti hai
+
+> ⚠️ Lookup bhi use ho sakta hai, lekin recommended nahi hai jab strong relation chahiye.
+
+---
+
+#### 5. Real Project Examples of Many-to-Many
+
+| Scenario             | Objects           |
+| -------------------- | ----------------- |
+| Students ↔ Courses   | Enrollment        |
+| Products ↔ Discounts | Product Discount  |
+| Users ↔ Skills       | User Skill        |
+| Accounts ↔ Programs  | Account Program   |
+| Doctors ↔ Hospitals  | Doctor Assignment |
+
+---
+
+#### 6. Where Junction Object Stores Business Data
+
+Junction Object sirf linking ke liye nahi hota,
+ye **business-specific data** bhi store karta hai.
+
+#### Example Fields:
+
+* Enrollment Date
+* Status
+* Role
+* Percentage
+* Active Flag
+
+---
+
+#### 7. Roll-Up Summary in Many-to-Many
+
+Roll-Up Summary:
+
+* Junction → Parent
+* Count, Sum, Min, Max possible
+
+Example:
+
+* Student → Total Courses
+* Course → Total Enrollments
+
+---
+
+#### 8. Ownership & Sharing in Many-to-Many
+
+* Junction object ka **Owner field nahi hota**
+* Ownership parents se inherit hoti hai
+* Sharing model controlled by parents
+
+---
+
+#### 9. Many-to-Many with Lookup (Edge Case)
+
+### When to use:
+
+* One side optional ho
+* Parent independent exist kar sakta ho
+* Security flexible chahiye
+
+#### Design:
+
+* Junction → Parent A (Master-Detail)
+* Junction → Parent B (Lookup)
+
+---
+
+#### 10. Limits & Important Rules
+
+* Junction Object me max **2 Master-Detail** relationships
+* Junction object itself **child hota hai**, parent nahi
+* Roll-Up Summary sirf parents par allowed
+* Junction object ke bina true many-to-many possible nahi
+
+---
+
+### 11. External Lookup Relationship
+
+* Salesforce object ko **External Object / External Database table** se connect karta hai
+* Example: Dotnet / SAP / External system tables
+
+---
+
+## 12. Schema Builder
+
+### What is Schema Builder?
+
+Schema Builder ek visual tool hai jisse:
+
+* Objects ke beech relationship dekh sakte ho
+* New objects create kar sakte ho
+* Fields add / delete kar sakte ho
+* Relationship type identify kar sakte ho
+
+### How to identify LR or MDR in Schema Builder?
+
+* **Thread color se** relationship identify hoti hai
+* **Three lines** → Child side
+* **One line** → Parent side
+
+---
+
+## 13. Famous Interview Question
+
+### Relationship between Account and Contact?
+
+**Answer:**
+
+* By default **Lookup Relationship** hota hai
+* But practically ye **MDR jaisa behave karta hai**
+* Account delete hone par Contact records bhi delete ho jaate hain
+* Ye Salesforce internally manage karta hai, hume kuch configure nahi karna padta
+
+---
+
+## 14. Simple Real-Life Example
+
+* **Mentor (Primary Object)** → One record
+* **Student (Secondary Object)** → Many records
+
+👉 Salesforce mostly **One-to-Many** relationship pe kaam karta hai.
+
+> **Note**
+> #### Salesforce Relationship Scenario – Existing Data ke saath Master-Detail
+
+Agar **do objects already exist karte hain aur dono me data bhi present hai**, aur hume unke beech **Master-Detail Relationship (MDR)** establish karni ho, to **direct MDR create karna possible nahi hota**.
+
+**Reason:**
+Master-Detail relationship me **child record parent ke bina exist nahi kar sakta**.
+Lekin jab child object me already records hote hain aur unka parent defined nahi hota, to Salesforce **data integrity risk** ke kaaran error throw karta hai.
+
+---
+
+### Correct & Safe Approach (Step-by-Step)
+
+1. **Pehle Lookup Relationship (LR) create karo**
+
+   * Parent object → Child object ke beech **Lookup Relationship** establish karo
+   * Lookup optional hoti hai, isliye Salesforce allow kar deta hai
+
+2. **Existing child records ko update karo**
+
+   * Child object ke sab existing records me
+     **Lookup field ko valid parent record se populate karo**
+
+3. **Data validation ensure karo**
+
+   * Confirm karo ki **koi bhi child record blank parent reference ke saath na ho**
+
+4. **Lookup ko Master-Detail me convert karo**
+
+   * Ab jab saare child records ka parent defined hai
+   * Lookup field ko **Master-Detail Relationship me convert** kar sakte ho
+
+---
+
+### Interview-Ready One-Line Explanation
+
+> “When both objects already contain data, Salesforce does not allow direct creation of a Master-Detail relationship. The recommended approach is to first create a Lookup relationship, populate the parent field for all existing child records, and then convert the Lookup into a Master-Detail relationship.”
+
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+---
+
+
+
+
 ## Relationship in Salesforce
 
 ### Master Detail Relationship
