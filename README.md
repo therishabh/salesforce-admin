@@ -1142,7 +1142,7 @@ Example:
 
 ---
 
-## 12. Schema Builder
+### 12. Schema Builder
 
 ### What is Schema Builder?
 
@@ -1161,7 +1161,7 @@ Schema Builder ek visual tool hai jisse:
 
 ---
 
-## 13. Famous Interview Question
+### 13. Famous Interview Question
 
 ### Relationship between Account and Contact?
 
@@ -1174,7 +1174,7 @@ Schema Builder ek visual tool hai jisse:
 
 ---
 
-## 14. Simple Real-Life Example
+### 14. Simple Real-Life Example
 
 * **Mentor (Primary Object)** → One record
 * **Student (Secondary Object)** → Many records
