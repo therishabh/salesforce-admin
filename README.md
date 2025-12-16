@@ -825,11 +825,6 @@ Reason:
 ---
 ---
 
-Bilkul 👍
-Neeche maine tumhare **Salesforce Relationship** ke notes ko **proper structure, clear flow, correct wording, aur missing important points ke saath** complete karke likh diya hai.
-Language **Hinglish**, explanation **simple**, aur **interview + real project (RTP)** dono ke liye useful hai.
-
----
 
 ## Relationships
 
