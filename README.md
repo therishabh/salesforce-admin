@@ -1221,6 +1221,389 @@ Lekin jab child object me already records hote hain aur unka parent defined nahi
 > “When both objects already contain data, Salesforce does not allow direct creation of a Master-Detail relationship. The recommended approach is to first create a Lookup relationship, populate the parent field for all existing child records, and then convert the Lookup into a Master-Detail relationship.”
 
 
+
+
+# Hierarchical Relationship in Salesforce
+
+---
+
+## 1. What is Hierarchical Relationship?
+
+Hierarchical Relationship Salesforce ka **special relationship type** hai jo **sirf User object** ke liye hota hai.
+
+Iska use tab hota hai jab:
+
+* Users ke beech **manager–subordinate** relationship banana ho
+* Reporting aur approval hierarchy define karni ho
+
+---
+
+## 2. Where can we use Hierarchical Relationship?
+
+👉 **Only on User Object**
+
+* Koi bhi custom object ya standard object is relationship ko use nahi kar sakta
+* Ye Salesforce ka built-in limitation hai
+
+---
+
+## 3. Why Hierarchical Relationship exists?
+
+Salesforce ne ye relationship isliye diya hai taaki:
+
+* Approval processes easy ho
+* Reporting hierarchy manage ho
+* Manager-level data visibility handle ho
+
+---
+
+## 4. How Hierarchical Relationship works (Simple Example)
+
+### Example:
+
+* User A → Manager
+* User B → Reports to User A
+* User C → Reports to User A
+
+User object me ek field hota hai:
+
+* **Manager** (Hierarchical Relationship)
+
+---
+
+## 5. Hierarchical vs Self Relationship (Very Important)
+
+| Point            | Hierarchical Relationship | Self Relationship     |
+| ---------------- | ------------------------- | --------------------- |
+| Available On     | Only User                 | Any Object            |
+| Purpose          | Org hierarchy             | Custom linking        |
+| Setup Type       | Special relationship      | Lookup to same object |
+| Approval Support | Yes                       | No (directly)         |
+
+👉 Interview me yahi confusion test kiya jaata hai.
+
+---
+
+## 6. Key Characteristics of Hierarchical Relationship
+
+* Sirf **User object** par allowed
+* Acts like a **Lookup relationship**
+* No Roll-Up Summary support
+* No cascade delete
+* Mostly used for approvals & reporting
+* Parent (Manager) delete hone par child users delete nahi hote
+
+---
+
+## 7. Real Project Use Cases
+
+### 1️⃣ Approval Processes
+
+* Manager approval
+* Skip-level approval
+* Multi-level approval flows
+
+### 2️⃣ Data Visibility
+
+* Manager can see subordinate records
+* Hierarchical access using role hierarchy + user hierarchy
+
+### 3️⃣ Reporting
+
+* Manager-wise reports
+* Team performance dashboards
+
+---
+
+## 8. Can we create our own Hierarchical Relationship?
+
+❌ No.
+
+Salesforce sirf **User → User** ke liye hi hierarchical relationship allow karta hai.
+
+Agar kisi aur object me hierarchy chahiye:
+👉 **Self Relationship (Lookup to same object)** use karte hain.
+
+---
+
+## 9. Hierarchical Relationship vs Role Hierarchy (Interview Trap)
+
+| Point          | Hierarchical Relationship | Role Hierarchy |
+| -------------- | ------------------------- | -------------- |
+| Level          | User record               | Security model |
+| Purpose        | Reporting & approvals     | Record access  |
+| Mandatory      | No                        | No             |
+| Direct Control | Yes                       | Indirect       |
+
+👉 Dono alag cheezein hain, confuse nahi karna.
+
+---
+
+## 10. Can Hierarchical Relationship control record sharing?
+
+**Answer:**
+Directly nahi.
+
+Sharing ke liye:
+
+* Role hierarchy
+* Sharing rules
+* Manual sharing
+
+Hierarchical relationship sirf **User-to-User mapping** deta hai.
+
+---
+
+## 11. Tricky Interview Questions (Hierarchy)
+
+### Q1. Can we create Roll-Up Summary on Hierarchical Relationship?
+
+❌ No.
+
+---
+
+### Q2. Can we use Hierarchical Relationship on Account or Custom Object?
+
+❌ No, sirf User object.
+
+---
+
+### Q3. Is Hierarchical Relationship same as Self Relationship?
+
+❌ No.
+
+---
+
+### Q4. Can we delete a Manager user?
+
+✅ Yes, but subordinates delete nahi hote.
+
+---
+
+### Q5. Can Hierarchical Relationship be mandatory?
+
+❌ No.
+
+---
+
+## 12. Scenario-Based Question
+
+**Scenario:**
+Approval process me manager approval chahiye, kaunsa relationship use hoga?
+
+**Answer:**
+Hierarchical Relationship on User object.
+
+---
+
+## 13. Real-World Interview Answer (One-Liner)
+
+> “Hierarchical relationship Salesforce ka built-in User-to-User relationship hai jo mainly approval processes aur reporting hierarchy ke liye use hota hai.”
+
+---
+
+
+# Self Relationship in Salesforce
+
+## 1. What is Self Relationship?
+
+**Self Relationship** ka matlab hai jab **ek object apne hi object se relationship banata hai**.
+
+Technically:
+
+* Ye ek **Lookup Relationship hoti hai**
+* Jo **same object ko reference karti hai**
+
+---
+
+## 2. Why do we need Self Relationship?
+
+Jab data ko **same object ke andar hierarchy ya reference** chahiye hoti hai, tab self relationship use hoti hai.
+
+---
+
+## 3. Simple Example
+
+### Account Hierarchy
+
+* Parent Account → Child Account
+* Account object me **Parent Account** field (Lookup to Account)
+
+👉 Ye hierarchical structure lagta hai, but **ye Hierarchical Relationship nahi hoti**.
+
+---
+
+## 4. Key Characteristics of Self Relationship
+
+* Ye hamesha **Lookup Relationship** hoti hai
+* **Cascade delete nahi hota**
+* Child record independently exist kar sakta hai
+* Roll-Up Summary **directly supported nahi hota**
+* Parent aur child ka owner alag ho sakta hai
+* Reparenting always allowed hoti hai
+
+---
+
+## 5. Where Self Relationship is Used (Real Projects)
+
+### 1️⃣ Account ↔ Account
+
+* Parent Account
+* Subsidiary Account
+
+### 2️⃣ Employee ↔ Employee (Custom Object)
+
+* Manager
+* Team Member
+
+### 3️⃣ Case ↔ Case
+
+* Parent Case
+* Child Case
+
+### 4️⃣ Custom Object Hierarchies
+
+* Category → Subcategory
+* Folder → Subfolder
+
+---
+
+## 6. Self Relationship vs Hierarchical Relationship (Important)
+
+| Point        | Self Relationship | Hierarchical Relationship |
+| ------------ | ----------------- | ------------------------- |
+| Object Scope | Any object        | Only User                 |
+| Type         | Lookup            | Special                   |
+| Use Case     | Data hierarchy    | Org hierarchy             |
+| Roll-Up      | Not direct        | Not allowed               |
+| Approval Use | No                | Yes                       |
+
+---
+
+## 7. How to Create Self Relationship (Steps)
+
+1. Go to Object Manager
+2. Open object
+3. Create new field → Lookup Relationship
+4. Select **same object**
+5. Give proper field label (Parent, Manager, Related To)
+
+---
+
+## 8. Important Limitations
+
+* Cannot create Roll-Up Summary directly
+* Data skew possible if too many child records under one parent
+* Circular references possible (need validation)
+
+---
+
+## 9. How to Prevent Circular Relationship (Production Case)
+
+**Problem:**
+Record A → Parent = Record B
+Record B → Parent = Record A
+
+**Solution:**
+
+* Validation Rule
+* Flow check before save
+
+---
+
+## 10. Roll-Up Summary in Self Relationship (How to Handle)
+
+Since direct roll-up not supported:
+
+* Use Record-Triggered Flow
+* Use Apex Trigger
+* Use DLRS tool
+
+---
+
+# Interview Questions on Self Relationship (6+ Years)
+
+---
+
+## 1. What is Self Relationship in Salesforce?
+
+**Answer:**
+Self Relationship ek lookup relationship hoti hai jisme object apne hi object se connected hota hai.
+
+---
+
+## 2. Is Self Relationship same as Hierarchical Relationship?
+
+**Answer:**
+❌ No.
+Hierarchical sirf User object ke liye hoti hai, self relationship kisi bhi object me ho sakti hai.
+
+---
+
+## 3. Can Self Relationship be Master-Detail?
+
+**Answer:**
+❌ No.
+Self relationship hamesha lookup hoti hai.
+
+---
+
+## 4. Can we create Roll-Up Summary in Self Relationship?
+
+**Answer:**
+❌ Directly nahi.
+Workaround: Flow / Apex.
+
+---
+
+## 5. Real-life example of Self Relationship?
+
+**Answer:**
+Account hierarchy, employee-manager in custom object, parent-child cases.
+
+---
+
+## 6. What happens if parent record is deleted?
+
+**Answer:**
+Child record delete nahi hota, kyunki lookup relationship hai.
+
+---
+
+## 7. Can we make Self Relationship mandatory?
+
+**Answer:**
+✅ Yes, lookup field required bana sakte hain.
+
+---
+
+## 8. How do you prevent infinite loops?
+
+**Answer:**
+Validation rules or flow-based circular checks.
+
+---
+
+## 9. How do you handle reporting in Self Relationship?
+
+**Answer:**
+
+* Custom report types
+* Flattened reporting
+* Summary fields via automation
+
+---
+
+## 10. Interview Trap Question
+
+**Question:**
+“Can we use Self Relationship for approval hierarchy?”
+
+**Correct Answer:**
+❌ No. Approval hierarchy ke liye **Hierarchical Relationship** hoti hai.
+
+---
+
 ### [Interview Questions](https://github.com/therishabh/salesforce-admin/blob/main/Relationship.md)
 
 ---
