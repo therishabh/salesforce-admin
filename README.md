@@ -1617,6 +1617,948 @@ Validation rules or flow-based circular checks.
 ---
 ---
 ---
+# Record Type
+
+## 🧩 Scenario Setup (Real-world socho)
+
+Maan lo ek **Education Management System** bana rahe ho Salesforce me.
+
+### 📦 Custom Object:
+
+**Student__c** (Student Object)
+
+Is object me **different type ke students** hain:
+
+1. School Student
+2. College Student
+
+👉 Dono **Student hi hain**, par:
+
+* Fields alag
+* Process alag
+* Picklist values alag
+* UI alag
+
+Yahin se **Record Type ka use start hota hai**.
+
+---
+
+### 📌 Student Object ke Common Fields (sab ke liye same)
+
+Ye fields **har student ke liye common** hain:
+
+* Name
+* Date_of_Birth__c
+* Gender__c
+* Email__c
+* Phone__c
+
+Ye fields **Record Type se independent** hain.
+
+---
+
+### 🎯 Business Requirement (Core Problem)
+
+#### 🏫 School Student
+
+* Class (1–12)
+* Section (A, B, C)
+* Guardian Name
+* Board (CBSE, ICSE)
+
+#### 🎓 College Student
+
+* Course (BCA, B.Tech, MBA)
+* Semester (1–8)
+* University Name
+* Enrollment Number
+
+👉 **Same object**, par **different data + UI + picklists**
+
+❌ Alag-alag object banana ❌
+✅ **Record Type use karna best practice** ✅
+
+---
+
+## 🧠 Record Type Solution (High-level)
+
+Object: **Student__c**
+
+Record Types:
+
+1. **School_Student**
+2. **College_Student**
+
+## Record Type kya control karega yahan?
+
+### Student__c ke liye Record Type control karega:
+
+✅ Page Layout
+✅ Picklist Values
+✅ Default selection (profile wise)
+❌ Object permission
+❌ Field security
+
+---
+
+## Page Layout Mapping (UI difference)
+
+### 🏫 School Student Layout
+
+**Page Layout: School_Student_Layout**
+
+Fields:
+
+* Name
+* Date of Birth
+* Class
+* Section
+* Guardian Name
+* Board
+
+👉 College related fields ❌ hidden
+
+---
+
+### 🎓 College Student Layout
+
+**Page Layout: College_Student_Layout**
+
+Fields:
+
+* Name
+* Date of Birth
+* Course
+* Semester
+* University Name
+* Enrollment Number
+
+👉 School fields ❌ hidden
+
+---
+
+### 🔑 Key Point (Important for Interview)
+
+> **Page Layout alag-alag UI dikhata hai, par kaunsa layout load hoga ye Record Type decide karta hai**
+
+---
+
+## 3️⃣ Picklist Values control (MOST IMPORTANT 🔥)
+
+### Picklist: **Student_Level__c**
+
+Master Picklist Values:
+
+* Primary
+* Secondary
+* Undergraduate
+* Postgraduate
+
+---
+
+### 🏫 School Student Record Type
+
+Allowed values:
+
+* Primary
+* Secondary
+
+❌ Undergraduate
+❌ Postgraduate
+
+---
+
+### 🎓 College Student Record Type
+
+Allowed values:
+
+* Undergraduate
+* Postgraduate
+
+❌ Primary
+❌ Secondary
+
+👉 **Yahin Record Type ka real power dikhai deta hai**
+
+---
+
+## Profile + Record Type relation (CRITICAL)
+
+### 🎭 Profiles:
+
+* School_Admin
+* College_Admin
+
+---
+
+### School_Admin Profile:
+
+* Available Record Types:
+
+  * ✅ School Student
+* Default:
+
+  * School Student
+
+👉 Jab user student create karega → direct School Student
+
+---
+
+### College_Admin Profile:
+
+* Available Record Types:
+
+  * ✅ College Student
+* Default:
+
+  * College Student
+
+---
+
+### Agar kisi profile ko dono access do:
+
+* Record create time **Record Type selection screen** aayega
+
+---
+
+## Record Creation Flow (End-to-End)
+
+### Step-by-step jab user record create karta hai:
+
+1️⃣ User clicks **New Student**
+2️⃣ Salesforce checks **Profile**
+3️⃣ Available record types dikhaata hai
+4️⃣ User selects:
+
+* School Student OR
+* College Student
+  5️⃣ Selected Record Type ke hisaab se:
+* Page Layout load
+* Picklist values filter
+  6️⃣ Record save
+
+🎯 **Same object, different experience**
+
+
+---
+
+## Automation me Record Type ka role
+
+### 🔹 Validation Rule
+
+```text
+AND(
+ RecordType.DeveloperName = 'School_Student',
+ ISBLANK(Class__c)
+)
+```
+
+👉 School student ke liye class mandatory
+
+---
+
+### 🔹 Flow
+
+* Decision: RecordType = College_Student
+* Action: Assign Semester
+
+---
+
+### 🔹 Apex
+
+```apex
+if(student.RecordTypeId == collegeRTId) {
+   // College logic
+}
+```
+
+---
+
+## Record Type kya ❌ nahi karta (Very Important)
+
+❌ Ye security nahi hai
+❌ Record hide nahi karta
+❌ Access deny nahi karta
+
+✔ Sirf **business behavior** control karta hai
+
+---
+---
+---
+---
+---
+---
+
+# Security : 
+
+> **Salesforce Security is a layered mechanism to control user authentication, object access, field access, and record visibility.**
+
+**Salesforce Security** ka matlab hota hai:
+
+👉 **Right user ko, right data, right time par, right access dena**
+aur baaki sab se data ko **protect** karna.
+
+---
+
+## 🧱 Salesforce Security ke main layers
+
+Salesforce security **layer-by-layer** kaam karti hai:
+
+
+### Authentication (Login Security)
+
+👉 *User kaun hai?*
+
+Use hota hai:
+
+* Username + Password
+* **MFA**
+* Login IP Ranges
+* Network Access
+
+📌 Matlab: *“User login kar bhi sakta hai ya nahi”*
+
+
+### Object-Level Security
+
+👉 *User kis object ko access kar sakta hai?*
+
+Use hota hai:
+
+* Profiles
+* Permission Sets
+
+Permissions:
+
+* Read
+* Create
+* Edit
+* Delete
+* View All
+* Modify All
+
+📌 Matlab: *“Account, Contact, Opportunity dikhe ya nahi”*
+
+
+### Field-Level Security
+
+👉 *Object ke kaun-se fields dikhen / edit ho?*
+
+Use hota hai:
+
+* Profiles
+* Permission Sets
+
+📌 Matlab: *“Salary, PAN, Amount field visible hai ya nahi”*
+
+
+### Record-Level Security
+
+👉 *Object ke kaun-se records dikhen?*
+
+Use hota hai:
+
+* OWD (Org-Wide Defaults)
+* Role Hierarchy
+* Sharing Rules
+* Manual Sharing
+* Teams
+
+📌 Matlab: *“Kaunsa Account / Opportunity kis user ko dikhe”*
+
+
+### Data Access Bypass (Special Powers ⚠️)
+
+👉 *Sharing ko ignore karne ki power*
+
+Use hota hai:
+
+* View All
+* Modify All
+* System Administrator
+* Without Sharing (Apex)
+
+📌 Matlab: *“Sab kuch dekh / edit kar sakta hai”*
+
+
+### UI & App Access
+
+👉 *User Salesforce me kya-kya use kar sakta hai?*
+
+Use hota hai:
+
+* App visibility
+* Tab visibility
+* Record Types
+* Page Layouts
+
+📌 Matlab: *“User ko kya UI dikhe”*
+
+---
+---
+---
+
+### Agar **object ke records** par security lagani hai (kaun kaun se records dikhen)
+
+👉 **Record-Level Security** use hoti hai
+
+#### Use hota hai:
+
+* **OWD (Org-Wide Defaults)**
+* **Role Hierarchy**
+* **Sharing Rules**
+* **Manual Sharing**
+* **Team Sharing**
+
+📌 Matlab: *“User ko kaun-se records dikhne chahiye”*
+
+---
+
+### Agar **object par ya uski fields par security** lagani hai (kya access mile)
+
+👉 **Object- & Field-Level Security** use hoti hai
+
+#### Use hota hai:
+
+* **Profiles**
+* **Permission Sets**
+
+Object level:
+
+* Read / Create / Edit / Delete
+  Field level:
+* Field Visible / Read-Only
+
+📌 Matlab: *“User object/field ko dekh ya edit kar sakta hai ya nahi”*
+
+---
+
+#### 🧠 Easy yaad rakhne ka trick
+
+* **Records** → *Sharing / OWD*
+* **Object / Field** → *Profile / Permission Set*
+
+
+#### 🎯 One-line summary
+
+* **Record security** = *Kaunsa record dikhe*
+* **Object/Field security** = *Kya cheez dikhe aur edit ho*
+
+---
+---
+---
+
+## Profile 
+
+### Profile View All and Modify All : 
+
+Salesforce me **Profile → Object Settings** ke andar jo **“View All”** aur **“Modify All”** checkboxes hote hain, unka matlab **normal CRUD permissions se kaafi zyada powerful** hota hai.
+
+---
+
+Har object (jaise Account, Contact, Custom Object) pe usually ye permissions hoti hain:
+
+* **Read** → record dekh sakta hai
+* **Create** → naya record bana sakta hai
+* **Edit** → record edit kar sakta hai
+* **Delete** → record delete kar sakta hai
+
+⚠️ **Ye permissions hamesha Sharing Rules, Role Hierarchy, OWD ka respect karti hain.**
+
+---
+
+### “View All” ka exact matlab kya hota hai?
+
+#### 🔍 View All = Object ke **saare records dekh sakta hai**
+
+Agar kisi user ko kisi object par **View All** mil gaya:
+
+* User **us object ke saare records dekh sakta hai**
+* Chahe:
+
+  * Record uska na ho
+  * Role ke bahar ka ho
+  * Sharing rule se share na hua ho
+
+👉 **Sharing completely bypass ho jati hai (Read level par)**
+
+##### Example:
+
+* Account OWD = **Private**
+* Normally user sirf apne accounts dekhta hai
+* Lekin agar **Account par View All** diya:
+
+  * User **system ke saare Accounts dekh sakta hai**
+
+📌 **View All = Read access without sharing**
+
+---
+
+### “Modify All” ka exact matlab kya hota hai?
+
+#### ✏️ Modify All = Object ke **saare records pe full control**
+
+Agar kisi user ko **Modify All** mil gaya:
+
+* User:
+
+  * Saare records **dekh sakta hai**
+  * Saare records **edit kar sakta hai**
+  * Saare records **delete kar sakta hai**
+* Ownership ya sharing ka koi matter nahi
+
+👉 **Sharing completely bypass ho jati hai (Read + Write + Delete)**
+
+📌 **Modify All = Full access without sharing**
+
+---
+
+### View All vs Modify All (Simple table)
+
+| Permission  | Kya kar sakta hai                       | Sharing follow hoti hai? |
+| ----------- | --------------------------------------- | ------------------------ |
+| Read / Edit | Limited records                         | ✅ Yes                    |
+| View All    | Saare records dekh sakta hai            | ❌ No                     |
+| Modify All  | Saare records edit/delete kar sakta hai | ❌ No                     |
+
+---
+
+### Kab use karte hain View All?
+
+#### 👍 Use cases:
+
+* **Reporting users** (jo sirf data dekhte hain)
+* **Audit / Compliance team**
+* **Support team (read-only view)**
+* **Manager ko full visibility chahiye but edit nahi**
+
+##### Example:
+
+* Finance team ko **saare Opportunities dekhni hain**
+* But wo edit nahi karegi
+  ➡️ **View All on Opportunity**
+
+
+### Kab use karte hain Modify All?
+
+#### ⚠️ Carefully use karna chahiye
+
+##### 👍 Use cases:
+
+* **System Admin**
+* **Data Migration users**
+* **Integration users**
+* **Super users / Operations team**
+
+##### Example:
+
+* Data clean-up chal raha hai
+* User ko **saare records update/delete** karne hain
+  ➡️ **Modify All on object**
+
+
+#### Important Interview Points ⭐
+
+* **View All / Modify All = Object level power**
+* Ye **Manual Sharing, Role Hierarchy, OWD sab bypass** kar dete hain
+* Ye **“Grant Access Using Hierarchies”** se bhi zyada powerful hote hain
+* Normally **Profiles pe kam use**, Permission Sets pe dena best practice
+
+---
+
+### Login IP Ranges kya hota hai?
+
+**Login IP Ranges** ek **security feature** hai jo decide karta hai:
+
+👉 **User Salesforce me sirf kaun-se IP address se login kar sakta hai**
+
+Agar user **allowed IP range ke bahar se login karega**, to:
+
+* Login **block ho jayega**
+* Error milega: *“Your login is restricted by IP range”*
+
+📌 Ye restriction **Profile level par hoti hai**
+
+---
+
+### Login IP Ranges Profile me kaha milta hai?
+
+Path 👇
+**Setup → Profiles → (Profile Name) → Login IP Ranges**
+
+Yaha tum define karte ho:
+
+* **Start IP Address**
+* **End IP Address**
+
+
+### Example (Real-life scenario)
+
+#### 🏢 Office network example
+
+* Office IP Range: `103.21.45.1 – 103.21.45.255`
+* Tumne ye IP range profile me add kar diya
+
+👉 Result:
+
+* Office network se login ✔️
+* Home Wi-Fi / Mobile Hotspot ❌
+* Cafe Wi-Fi ❌
+
+---
+
+### Login IP Ranges vs Trusted IP Ranges (Confusing but important ⚠️)
+
+Ye bahut log confuse karte hain, isliye clear karta hoon:
+
+#### 🔐 Login IP Ranges (Profile)
+
+* **Hard restriction**
+* IP range ke bahar → ❌ Login hi nahi hoga
+* Mostly **high security users** ke liye
+
+#### 🔓 Trusted IP Ranges (Org level)
+
+* **Soft restriction**
+* IP ke bahar:
+
+  * Login ho jayega
+  * But **OTP / Verification code** maangega
+
+| Feature                   | Login IP Range  | Trusted IP        |
+| ------------------------- | --------------- | ----------------- |
+| Level                     | Profile         | Org               |
+| Login allowed outside IP? | ❌ No            | ✅ Yes (with OTP)  |
+| Use case                  | Strict security | Flexible security |
+
+
+### Kab use karte hain Login IP Ranges?
+
+#### ✅ Best use cases
+
+* **Internal employees** (office network only)
+* **Finance / HR users**
+* **Admins (extra secure)**
+* **Call center users**
+
+#### Kab avoid karna chahiye
+
+* Sales users jo:
+  * Travel karte hain
+  * Mobile se login karte hain
+* Remote users / WFH
+
+
+### Login IP Ranges + MFA (Multi-Factor Authentication) (Important combo)
+
+Agar:
+
+* Profile me **Login IP Range set hai**
+* User allowed IP ke bahar se login kare
+
+➡️ **MFA bhi help nahi karega**
+➡️ Login directly block ho jayega
+
+📌 MFA ≠ IP restriction bypass
+
+---
+
+### Profile vs Permission Set (Best practice ⭐)
+
+* **Login IP Ranges sirf Profile me set hote hain**
+* Permission Set me **Login IP Range nahi hota**
+
+👉 Best practice:
+
+* **Minimal restriction profile**
+* Different IP needs ke liye **multiple profiles** ya
+* Use **Network Access (Trusted IP)**
+
+
+### 🧠 Profile ke Important Rules
+
+✔ Ek user = **sirf 1 profile**
+✔ Profile = **Minimum access**
+✔ Extra access = **Permission Set**
+✔ Profile se kabhi bhi access increase nahi hota sharing se pehle
+✔ Profile remove nahi hota jab tak user assigned ho
+
+
+
+### 🔐 Network Access – Salesforce me kya role hota hai?
+
+**Network Access** Salesforce ka **org-level security control** hai jo decide karta hai:
+👉 **kaun-se IP address se login “trusted” maana jayega**
+
+Ye **Login IP Ranges (Profile)** se alag hota hai aur kaafi log yahin confuse hote hain.
+
+---
+
+### Network Access kya hota hai?
+
+**Network Access = Trusted IP Address List**
+
+Path:
+**Setup → Security → Network Access**
+
+Yahan admin:
+
+* **Trusted IP ranges add karta hai**
+* Salesforce in IPs ko **safe / trusted** maanta hai
+
+📌 Ye **pure org par apply hota hai**, kisi specific profile par nahi
+
+* **Trusted IP se login kare**
+
+  * Login **direct ho jata hai**
+  * ❌ Koi OTP / MFA prompt nahi (agar policy allow kare)
+
+* **Trusted IP ke bahar se login kare**
+  * Login allowed hota hai
+  * But:
+    * OTP / MFA required hota hai
+
+👉 Matlab:
+**Network Access login ko block nahi karta, sirf verification control karta hai**
+
+
+
+## Permission Set
+
+**Permission Set** ek **additional security layer** hai jo user ko **extra access** dene ke liye use hota hai — **profile ke upar**.
+
+👉 Simple line me:
+**Profile = Minimum access**
+**Permission Set = Extra power (jab zarurat ho)**
+
+Salesforce me best practice yahi hai ki **Salesforce** me:
+
+> *“Profile ko lean rakho, permission set se access badhao”*
+
+---
+
+### 🤔 Permission Set kyun chahiye?
+
+Agar sirf profile use karoge to:
+
+* Bahut saare profiles banane padenge
+* Maintenance tough ho jayega
+
+### Real Problem:
+
+Maan lo:
+
+* 50 users ko bas **Report export** ka access chahiye
+* Sirf 10 users ko **Approve discount** ka access chahiye
+
+❌ Agar profile se karoge → 5–6 new profiles
+✅ Permission Set se → 2 permission set + assign
+
+---
+
+### 🧩 Permission Set ke andar kya-kya hota hai?
+
+#### Object Permissions (OLS)
+
+Same jaise profile me hota hai, but **additional**
+
+* Read
+* Create
+* Edit
+* Delete
+* View All
+* Modify All
+
+📌 Example:
+Profile:
+
+* Opportunity → Read only
+
+Permission Set:
+
+* Opportunity → Edit
+
+👉 Final Result = **Read + Edit allowed**
+
+⚠️ Rule:
+
+> Permission Set **access badha sakta hai, kam nahi**
+
+---
+
+#### Field Level Security (FLS)
+
+Field ko:
+
+* Visible
+* Editable
+
+📌 Example:
+Profile:
+
+* Discount__c → Read Only
+
+Permission Set:
+
+* Discount__c → Editable
+
+✔ User ab field edit kar sakta hai
+
+---
+
+#### System Permissions (Most Powerful 🔥)
+
+Permission Set ka sabse strong use yahi hai
+
+Common permissions:
+
+* Run Reports
+* Create & Customize Reports
+* Import Wizard
+* Approve Requests
+* View All Data
+* Modify All Data (⚠️ Admin-level)
+
+📌 Example:
+
+* Normal user
+* Permission Set → “Report Admin”
+* User reports bana + export kar sakta hai
+
+---
+
+#### App Permissions
+
+Permission Set se:
+
+* Extra **App access** diya ja sakta hai
+
+📌 Example:
+Profile:
+
+* Sales App only
+
+Permission Set:
+
+* Service App access
+
+✔ Same user, 2 apps
+
+---
+
+#### Tab Settings
+
+Permission Set se:
+
+* New tabs visible kar sakte ho
+
+📌 Example:
+
+* Reports Tab = Default On
+* Dashboards Tab = Default On
+
+---
+
+#### Apex Class Access
+
+Agar koi Apex code hai:
+
+* REST API
+* Controller
+* Integration logic
+
+To Permission Set se allow karna hota hai
+
+📌 Example:
+
+* PaymentGatewayController
+* OrderIntegrationService
+
+---
+
+#### Visualforce Page Access
+
+Visualforce pages ko:
+
+* Explicitly permission set me add karna hota hai
+
+---
+
+#### Custom Permissions (Advanced 💡)
+
+Custom Permission ek **flag** jaisa hota hai
+
+📌 Use case:
+
+* “Can Approve Refund”
+* “Can See Confidential Data”
+
+Fir:
+
+* Permission Set me add
+* Apex / Flow / Validation me check
+
+```apex
+FeatureManagement.checkPermission('Approve_Refund')
+```
+
+---
+
+#### 🧠 Permission Set Assignment Rules
+
+✔ Ek user ko **multiple permission set** mil sakte hain
+✔ Permission set **expire bhi ho sakta hai** (temporary access)
+✔ Permission set **kabhi access revoke nahi karta**
+
+---
+
+#### 🧩 Permission Set Group (Advanced)
+
+Multiple permission sets ka **bundle**
+
+📌 Example:
+Sales Power User Group:
+
+* Report Access
+* Discount Approval
+* Export Data
+
+✔ Ek click me assign
+✔ Maintenance easy
+
+
+#### 🔐 Security Order (Very Important)
+
+**Sabse pehle kaun?**
+
+1️⃣ Profile
+2️⃣ Permission Set
+3️⃣ Permission Set Group
+4️⃣ Role Hierarchy
+5️⃣ Sharing Rules
+
+👉 Agar profile me access ❌ hai, to permission set bhi fail ho sakta hai (object level)
+
+---
+
+#### 📚 Interview Notes (One-shot)
+
+* Permission Set = **Access booster**
+* Kabhi deny nahi karta
+* Profile ke baad apply hota hai
+* Multiple assign possible
+* Custom Permission = feature flag
+* Apex / VF / Flow sab control ho sakta hai
+
+---
+---
+---
+---
+---
+---
+---
+---
+
 
 ## Custom Labels Vs Custom Settings Vs Custom Metadata
 #### What is Custom Label in Salesforce?
