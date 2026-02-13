@@ -101,9 +101,9 @@ Rules:
 
 ### 🔹 Benefits
 
-✔ Faster response
-✔ Right person ko right lead
-✔ Sales efficiency badhti hai
+- ✔ Faster response
+- ✔ Right person ko right lead
+- ✔ Sales efficiency badhti hai
 
 ---
 
@@ -115,8 +115,8 @@ Sales person check karta hai:
 * Budget hai?
 * Decision maker hai?
 
-👉 Agar **YES** → Convert Lead
-👉 Agar **NO** → Close / Nurture
+- 👉 Agar **YES** → Convert Lead
+- 👉 Agar **NO** → Close / Nurture
 
 ---
 
@@ -183,10 +183,10 @@ Closed Won / Lost
 
 ## 🔵 PART 1 Summary (Yaad Rakhne Layak)
 
-✔ Sales Cloud = Sales lifecycle management
-✔ Lead = Unknown customer
-✔ Lead Assignment Rules = Auto distribution
-✔ Lead Conversion = Lead → Account + Contact + Opportunity
+- ✔ Sales Cloud = Sales lifecycle management
+- ✔ Lead = Unknown customer
+- ✔ Lead Assignment Rules = Auto distribution
+- ✔ Lead Conversion = Lead → Account + Contact + Opportunity
 
 ---
 ---
@@ -415,20 +415,20 @@ Jab **Lead Convert** hota hai 👇
 
 ## 🔵 Common Beginner Mistakes ❌
 
-❌ Contact bina Account ke banana
-❌ Account ko person ke naam se banana (B2B me)
-❌ Duplicate Accounts banana
-❌ Person Account concept ignore karna
+- ❌ Contact bina Account ke banana
+- ❌ Account ko person ke naam se banana (B2B me)
+- ❌ Duplicate Accounts banana
+- ❌ Person Account concept ignore karna
 
 ---
 
 ## 🔵 PART 2 Summary (Yaad Rakhne Layak)
 
-✔ Account = Company / Customer entity
-✔ Contact = Person inside Account
-✔ One Account → Many Contacts
-✔ Person Account = Individual customer
-✔ Lead convert hone ke baad Account & Contact backbone hote hain
+- ✔ Account = Company / Customer entity
+- ✔ Contact = Person inside Account
+- ✔ One Account → Many Contacts
+- ✔ Person Account = Individual customer
+- ✔ Lead convert hone ke baad Account & Contact backbone hote hain
 
 ---
 ---
@@ -674,10 +674,10 @@ Customer submits form
 
 ## 🔵 Summary (Yaad Rakhne Layak)
 
-✔ Web-to-Lead = Website → Salesforce Lead
-✔ Assignment + Auto-Response = Automation
-✔ CAPTCHA = Security
-✔ Reporting ke liye Lead Source critical
+- ✔ Web-to-Lead = Website → Salesforce Lead
+- ✔ Assignment + Auto-Response = Automation
+- ✔ CAPTCHA = Security
+- ✔ Reporting ke liye Lead Source critical
 
 ---
 ---
